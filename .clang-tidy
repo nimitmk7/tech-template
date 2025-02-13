@@ -7,9 +7,8 @@ Checks: '*,
         -modernize-use-trailing-return-type,
         -llvm-*'
 WarningsAsErrors: ''
-HeaderFilterRegex: ''
-AnalyzeTemporaryDtors: false
-FormatStyle: none
+HeaderFilterRegex: '.*'
+FormatStyle: file
 CheckOptions:
   - key: readability-identifier-length.MinimumVariableNameLength
     value: 2
