@@ -1,21 +1,16 @@
 version: 2.1
 
-executors:
-  cpp-executor:
-    docker:
-      - image: circleci/cpp:latest
-    working_directory: ~/tech-template
-
 jobs:
   test:
-    executor: cpp-executor
+    # No executor specified, so it runs directly on the VM
     steps:
       - checkout
       - run:
           name: Install Dependencies
           command: |
-            sudo apt update
-            sudo apt install -y cmake g++ ninja-build
+            sudo apt update  # Or your system's package manager
+            sudo apt install -y cmake g++ ninja-build # Add other dependencies
+            # ... any other dependencies you need (libraries, etc.)
       - run:
           name: Build Project
           command: |
