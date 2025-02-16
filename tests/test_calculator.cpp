@@ -18,3 +18,9 @@ void testCalculator() {
     assert(std::string(e.what()) == "Division by zero");
   }
 }
+
+int main() {
+  testCalculator();
+  std::cout << "All tests passed!" << std::endl;
+  return 0;
+}

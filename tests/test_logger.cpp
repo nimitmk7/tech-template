@@ -14,3 +14,9 @@ void testLogger() {
   assert(std::string(logs[0]) == "add");
   assert(std::string(logs[1]) == "subtract");
 }
+
+int main() {
+  testLogger();
+  std::cout << "All tests passed!" << std::endl;
+  return 0;
+}

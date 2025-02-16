@@ -12,3 +12,9 @@ void testNotifier() {
   notifier.checkAndNotify(15);
   assert(notifier.wasNotified());
 }
+
+int main() {
+  testNotifier();
+  std::cout << "All tests passed!" << std::endl;
+  return 0;
+}
