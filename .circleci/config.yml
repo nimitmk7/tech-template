@@ -4,6 +4,9 @@ executors:
   cpp-executor:
     docker:
       - image: circleci/cpp:latest
+      - auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
     working_directory: ~/tech-template
 
 jobs:
