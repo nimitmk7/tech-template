@@ -2,8 +2,6 @@ version: 2.1
 
 executors:
   cpp-executor:
-    #docker:
-    #  - image: gcc:latest
     machine:
       image: ubuntu-2204:current  # Use a machine executor with Docker support
     working_directory: ~/tech-template
@@ -12,35 +10,40 @@ jobs:
   test:
     executor: cpp-executor
     steps:
-      # Step to authenticate Docker Hub credentials
-      #- setup_remote_docker:
-      #    docker_layer_caching: true
+      # Authenticate Docker Hub (Uncomment if needed)
       - run:
           name: Docker Login
           command: |
-            echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
+            echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin || echo "Docker login failed, continuing..."
+
       - checkout
+
       - run:
           name: Install Dependencies
           command: |
             sudo apt update
             sudo apt install -y cmake g++ ninja-build
+
       - run:
           name: Build Project
           command: |
-            mkdir build
+            mkdir -p build/test_results  # Ensure test results directory exists
             cd build
             cmake .. -G Ninja
             ninja
+
       - run:
-          name: Run Unit Tests
+          name: Run Unit Tests and Store Results
           command: |
             cd build
-            ctest --output-on-failure
+            ctest --output-on-failure | tee test_results/ctest_output.log
+            cp -r Testing/Temporary test_results/ 2>/dev/null || echo "No test output directory found."
+
       - store_test_results:
-          path: build/Testing/Temporary
+          path: build/test_results  # Store structured test results
+
       - store_artifacts:
-          path: build/Testing/Temporary
+          path: build/test_results  # Store test logs as artifacts
 
 workflows:
   version: 2
