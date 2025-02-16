@@ -4,7 +4,7 @@ executors:
   cpp-executor:
     docker:
       - image: circleci/cpp:latest
-    working_directory: ~/repo
+    working_directory: ~/tech-template
 
 jobs:
   test:
