@@ -5,8 +5,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 17)
 
 # Collect all source files for core functionality
-file(GLOB PROJECT_SOURCES "src/*.cpp")  # Assuming all core classes are in `src/`
-file(GLOB PROJECT_HEADERS "include/*.h")  # Assuming headers are in `include/`
+file(GLOB PROJECT_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")  # Assuming all core classes are in `src/`
+file(GLOB PROJECT_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")  # Assuming headers are in `include/`
 
 # Create a library for the core functionality
 add_library(example_lib ${PROJECT_SOURCES}) 
