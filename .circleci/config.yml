@@ -12,7 +12,6 @@ jobs:
     steps:
       # Step to authenticate Docker Hub credentials
       - setup_remote_docker:
-          version: 20.10.7
           docker_layer_caching: true
       - run:
           name: Docker Login
