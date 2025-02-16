@@ -2,8 +2,10 @@ version: 2.1
 
 executors:
   cpp-executor:
-    docker:
-      - image: gcc:latest
+    #docker:
+    #  - image: gcc:latest
+    machine:
+      image: ubuntu-2204:current  # Use a machine executor with Docker support
     working_directory: ~/tech-template
 
 jobs:
@@ -11,8 +13,8 @@ jobs:
     executor: cpp-executor
     steps:
       # Step to authenticate Docker Hub credentials
-      - setup_remote_docker:
-          docker_layer_caching: true
+      #- setup_remote_docker:
+      #    docker_layer_caching: true
       - run:
           name: Docker Login
           command: |
