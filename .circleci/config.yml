@@ -3,7 +3,7 @@ version: 2.1
 executors:
   cpp-executor:
     docker:
-      - image: circleci/cpp:latest
+      - image: gcc:latest
     working_directory: ~/tech-template
 
 jobs:
