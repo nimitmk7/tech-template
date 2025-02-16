@@ -1,0 +1,40 @@
+version: 2.1
+
+executors:
+  cpp-executor:
+    docker:
+      - image: circleci/cpp:latest
+    working_directory: ~/repo
+
+jobs:
+  test:
+    executor: cpp-executor
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: |
+            sudo apt update
+            sudo apt install -y cmake g++ ninja-build
+      - run:
+          name: Build Project
+          command: |
+            mkdir build
+            cd build
+            cmake .. -G Ninja
+            ninja
+      - run:
+          name: Run Unit Tests
+          command: |
+            cd build
+            ctest --output-on-failure
+      - store_test_results:
+          path: build/Testing/Temporary
+      - store_artifacts:
+          path: build/Testing/Temporary
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
