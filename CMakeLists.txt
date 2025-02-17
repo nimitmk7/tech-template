@@ -9,6 +9,16 @@ set(GTEST_LIBRARY "/usr/lib/libgtest.a")
 set(GTEST_MAIN_LIBRARY "/usr/lib/libgtest_main.a")
 find_package(GTest REQUIRED)
 
+option(ENABLE_COVERAGE "Enable coverage reporting" ON)
+
+if(ENABLE_COVERAGE)
+  # These flags work for gcc and clang (with gcov support).
+  # For clang you might also need -fprofile-instr-generate -fcoverage-mapping
+  add_compile_options(--coverage -fprofile-arcs -ftest-coverage)
+  add_link_options(--coverage -fprofile-arcs -ftest-coverage)
+endif()
+
+
 # Add subdirectories for each component.
 add_subdirectory(components/calculator)
 add_subdirectory(components/logger)
