@@ -1,22 +1,27 @@
 #include <cassert>
 #include <iostream>
-
 #include "logger.h"
 
 void testLogger() {
-  Logger logger;
+    Logger logger;
 
-  logger.log("add");
-  logger.log("subtract");
+    logger.log("add");
+    logger.log("subtract");
 
-  const std::vector<const char*>& logs = logger.getLogs();
-  assert(logs.size() == 2);
-  assert(std::string(logs[0]) == "add");
-  assert(std::string(logs[1]) == "subtract");
+    // Correct type: std::vector<std::string>
+    const std::vector<std::string>& logs = logger.getLogs();
+
+    // Check log count
+    assert(logs.size() == 2);
+
+    // Check log contents
+    assert(logs[0] == "add");
+    assert(logs[1] == "subtract");
+
+    std::cout << "Logger Test Passed!" << std::endl;
 }
 
 int main() {
-  testLogger();
-  std::cout << "All tests passed!" << std::endl;
-  return 0;
+    testLogger();
+    return 0;
 }

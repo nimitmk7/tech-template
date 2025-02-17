@@ -4,6 +4,10 @@ project(example)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 17)
 
+# Include the directory containing header files
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+
 # Collect all source files for core functionality
 file(GLOB PROJECT_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")  # Assuming all core classes are in `src/`
 file(GLOB PROJECT_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")  # Assuming headers are in `include/`
@@ -36,3 +40,6 @@ foreach(TEST_SOURCE ${TEST_SOURCES})
   # Register test with CTest
   add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
 endforeach()
+
+
+

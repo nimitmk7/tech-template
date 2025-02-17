@@ -1,0 +1,5 @@
+test_calculator 1 0.133465
+test_e2e 1 0.13672
+test_logger 1 0.14287
+test_notifier 1 0.128809
+---

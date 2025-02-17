@@ -1,0 +1,56 @@
+[
+{
+  "directory": "/Users/hly/Desktop/tech-template/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/example_lib.dir/calculator.cpp.o -c /Users/hly/Desktop/tech-template/calculator.cpp",
+  "file": "/Users/hly/Desktop/tech-template/calculator.cpp",
+  "output": "CMakeFiles/example_lib.dir/calculator.cpp.o"
+},
+{
+  "directory": "/Users/hly/Desktop/tech-template/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/example_lib.dir/logger.cpp.o -c /Users/hly/Desktop/tech-template/logger.cpp",
+  "file": "/Users/hly/Desktop/tech-template/logger.cpp",
+  "output": "CMakeFiles/example_lib.dir/logger.cpp.o"
+},
+{
+  "directory": "/Users/hly/Desktop/tech-template/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/example_lib.dir/main.cpp.o -c /Users/hly/Desktop/tech-template/main.cpp",
+  "file": "/Users/hly/Desktop/tech-template/main.cpp",
+  "output": "CMakeFiles/example_lib.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/hly/Desktop/tech-template/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/example_lib.dir/notifier.cpp.o -c /Users/hly/Desktop/tech-template/notifier.cpp",
+  "file": "/Users/hly/Desktop/tech-template/notifier.cpp",
+  "output": "CMakeFiles/example_lib.dir/notifier.cpp.o"
+},
+{
+  "directory": "/Users/hly/Desktop/tech-template/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/example.dir/main.cpp.o -c /Users/hly/Desktop/tech-template/main.cpp",
+  "file": "/Users/hly/Desktop/tech-template/main.cpp",
+  "output": "CMakeFiles/example.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/hly/Desktop/tech-template/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/test_calculator.dir/tests/test_calculator.cpp.o -c /Users/hly/Desktop/tech-template/tests/test_calculator.cpp",
+  "file": "/Users/hly/Desktop/tech-template/tests/test_calculator.cpp",
+  "output": "CMakeFiles/test_calculator.dir/tests/test_calculator.cpp.o"
+},
+{
+  "directory": "/Users/hly/Desktop/tech-template/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o -c /Users/hly/Desktop/tech-template/tests/test_e2e.cpp",
+  "file": "/Users/hly/Desktop/tech-template/tests/test_e2e.cpp",
+  "output": "CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o"
+},
+{
+  "directory": "/Users/hly/Desktop/tech-template/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/test_logger.dir/tests/test_logger.cpp.o -c /Users/hly/Desktop/tech-template/tests/test_logger.cpp",
+  "file": "/Users/hly/Desktop/tech-template/tests/test_logger.cpp",
+  "output": "CMakeFiles/test_logger.dir/tests/test_logger.cpp.o"
+},
+{
+  "directory": "/Users/hly/Desktop/tech-template/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/test_notifier.dir/tests/test_notifier.cpp.o -c /Users/hly/Desktop/tech-template/tests/test_notifier.cpp",
+  "file": "/Users/hly/Desktop/tech-template/tests/test_notifier.cpp",
+  "output": "CMakeFiles/test_notifier.dir/tests/test_notifier.cpp.o"
+}
+]
