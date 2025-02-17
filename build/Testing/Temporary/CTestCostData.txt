@@ -1,7 +1,0 @@
-test_calculator_logger 1 0.189463
-test_logger_notifier 1 0.0982312
-test_e2e 1 0.0976693
-unit_test_calculator 1 0.099209
-unit_test_logger 1 0.103106
-unit_test_notifier 1 0.0992137
----

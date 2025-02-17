@@ -32,6 +32,8 @@ foreach(TEST_SOURCE ${INTEGRATION_TEST_SOURCES})
   add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
 endforeach()
 
+
+
 # Add end-to-end tests (assuming they reside in tests/e2e)
 file(GLOB E2E_TEST_SOURCES "${CMAKE_SOURCE_DIR}/tests/e2e/*.cpp")
 foreach(TEST_SOURCE ${E2E_TEST_SOURCES})
