@@ -1,9 +1,0 @@
-/Users/hly/Desktop/tech-template/build/CMakeFiles/example_lib.dir
-/Users/hly/Desktop/tech-template/build/CMakeFiles/example.dir
-/Users/hly/Desktop/tech-template/build/CMakeFiles/test_calculator.dir
-/Users/hly/Desktop/tech-template/build/CMakeFiles/test_e2e.dir
-/Users/hly/Desktop/tech-template/build/CMakeFiles/test_logger.dir
-/Users/hly/Desktop/tech-template/build/CMakeFiles/test_notifier.dir
-/Users/hly/Desktop/tech-template/build/CMakeFiles/test.dir
-/Users/hly/Desktop/tech-template/build/CMakeFiles/edit_cache.dir
-/Users/hly/Desktop/tech-template/build/CMakeFiles/rebuild_cache.dir
