@@ -1,47 +1,34 @@
 version: 2.1
 
-executors:
-  cpp-executor:
-    machine:
-      image: ubuntu-2204:current  # Use a machine executor with Docker support
-    working_directory: ~/tech-template
-
 jobs:
   test:
-    executor: cpp-executor
+    machine:
+      image: ubuntu-2204:current  # Use the latest Ubuntu machine executor
+    working_directory: ~/tech-template
     steps:
-      # Authenticate Docker Hub (Uncomment if needed)
-      - run:
-          name: Docker Login
-          command: |
-            echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin || echo "Docker login failed, continuing..."
-
-      - checkout
+      - checkout  # Checkout repo first!
 
       - run:
           name: Install Dependencies
           command: |
             sudo apt update
-            sudo apt install -y cmake g++ ninja-build
-
-      - name: Build and Install GTest
-        run: |
-          cd /usr/src/gtest
-          sudo cmake CMakeLists.txt
-          sudo make
-          sudo cp lib/*.a /usr/lib
-          sudo cp -r /usr/src/googletest/googletest/include/gtest /usr/include/
+            sudo apt install -y cmake g++ ninja-build libgtest-dev
+            cd /usr/src/googletest
+            sudo cmake CMakeLists.txt
+            sudo make
+            sudo cp lib/*.a /usr/lib
+            sudo cp -r googletest/include/gtest /usr/include/
 
       - run:
-          name: Build Project
+          name: Configure and Build
           command: |
-            mkdir -p build/test_results  # Ensure test results directory exists
+            mkdir -p build/test_results
             cd build
-            cmake .. -G Ninja
+            cmake .. -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
             ninja
 
       - run:
-          name: Run Unit Tests and Store Results
+          name: Run Unit Tests
           command: |
             cd build
             ctest --output-on-failure | tee test_results/ctest_output.log
