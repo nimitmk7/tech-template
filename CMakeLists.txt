@@ -5,6 +5,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 17)
 
 set(GTEST_INCLUDE_DIR "/usr/include")
+set(GTEST_LIBRARY "/usr/lib/libgtest.a")
+set(GTEST_MAIN_LIBRARY "/usr/lib/libgtest_main.a")
 find_package(GTest REQUIRED)
 
 # Add subdirectories for each component.
