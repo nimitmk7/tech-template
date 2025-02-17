@@ -1,1 +1,0 @@
-/opt/homebrew/opt/llvm/bin/clang++  -fprofile-arcs -ftest-coverage --coverage -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -fprofile-arcs -ftest-coverage --coverage CMakeFiles/example.dir/main.cpp.o -o example  libexample_lib.a

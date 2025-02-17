@@ -1,0 +1,16 @@
+# ninja log v6
+3	72	1739757941994404562	CMakeFiles/example_lib.dir/notifier.cpp.o	db9d2880aa35fe3a
+2	131	1739757941993230966	CMakeFiles/example_lib.dir/calculator.cpp.o	730933c5c48bf6f3
+6	462	1739757941996885254	CMakeFiles/test_notifier.dir/tests/test_notifier.cpp.o	954454b923c98fe6
+3	468	1739757941994106392	CMakeFiles/example_lib.dir/main.cpp.o	c07094b552e01d0a
+4	486	1739757941994641106	CMakeFiles/example.dir/main.cpp.o	44b595eb5188ccc2
+4	498	1739757941994876358	CMakeFiles/test_calculator.dir/tests/test_calculator.cpp.o	87f1beb735590c98
+5	515	1739757941995793826	CMakeFiles/test_logger.dir/tests/test_logger.cpp.o	71558b540feedb75
+4	521	1739757941995334113	CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o	748a58c18476177d
+3	522	1739757941993824847	CMakeFiles/example_lib.dir/logger.cpp.o	3b9e738b13f87575
+522	540	1739757942512656737	libexample_lib.a	a358e4cfd53c47e
+540	591	1739757942531446471	example	9bccb11cc2f5ed5d
+542	591	1739757942533249781	test_notifier	95e094fb4b49b6cf
+541	593	1739757942532456898	test_logger	59f72d701fa60c37
+541	595	1739757942531995894	test_e2e	d1a6730020ab2660
+541	596	1739757942531823642	test_calculator	5bbbbfbca0bdfc4a
