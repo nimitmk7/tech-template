@@ -1,44 +1,53 @@
 version: 2.1
 
+executors:
+  cpp-executor:
+    machine:
+      image: ubuntu-2204:current  # Use a machine executor with Docker support
+    working_directory: ~/tech-template
+
 jobs:
   test:
-    machine:
-      image: ubuntu-2204:current  # Use the latest Ubuntu machine executor
-    working_directory: ~/tech-template
+    executor: cpp-executor
     steps:
-      - checkout  # Checkout repo first!
+      - checkout  # Pull the latest code
+
+      # Optional: Authenticate Docker Hub (if needed)
+      - run:
+          name: Docker Login
+          command: |
+            if [ -n "$DOCKERHUB_PASSWORD" ]; then
+              echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin || echo "Docker login failed, continuing..."
+            fi
 
       - run:
           name: Install Dependencies
           command: |
             sudo apt update
-            sudo apt install -y cmake g++ ninja-build libgtest-dev
-            cd /usr/src/googletest
-            sudo cmake CMakeLists.txt
-            sudo make
-            sudo cp lib/*.a /usr/lib
-            sudo cp -r googletest/include/gtest /usr/include/
+            sudo apt install -y cmake g++ ninja-build googletest
 
       - run:
-          name: Configure and Build
+          name: Build Project
           command: |
-            mkdir -p build/test_results
+            mkdir -p build/test_results  # Ensure test results directory exists
             cd build
-            cmake .. -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+            cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Debug
             ninja
 
       - run:
-          name: Run Unit Tests
+          name: Run Unit Tests and Store Results
           command: |
             cd build
-            ctest --output-on-failure | tee test_results/ctest_output.log
-            cp -r Testing/Temporary test_results/ 2>/dev/null || echo "No test output directory found."
+            ctest --output-on-failure --test-output-size-passed | tee test_results/ctest_output.log
+            ctest --test-output-size-passed --gtest_output=xml:test_results/gtest_results.xml || echo "No GTest XML output found."
 
+      # Ensure test results are properly stored
       - store_test_results:
-          path: build/test_results  # Store structured test results
+          path: build/test_results  # Store structured test results in CircleCI
 
+      # Store logs for debugging
       - store_artifacts:
-          path: build/test_results  # Store test logs as artifacts
+          path: build/test_results  # Store test logs and XML reports
 
 workflows:
   version: 2
