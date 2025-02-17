@@ -8,6 +8,10 @@ set(GTEST_INCLUDE_DIR "/usr/include")
 set(GTEST_LIBRARY "/usr/lib/libgtest.a")
 set(GTEST_MAIN_LIBRARY "/usr/lib/libgtest_main.a")
 find_package(GTest REQUIRED)
+add_library(GTest::gtest_main UNKNOWN IMPORTED)
+set_target_properties(GTest::gtest_main PROPERTIES
+    IMPORTED_LOCATION /usr/lib/libgtest_main.a
+)
 
 # Add subdirectories for each component.
 add_subdirectory(components/calculator)
