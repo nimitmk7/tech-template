@@ -15,14 +15,6 @@ jobs:
           name: Docker Login
           command: |
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin || echo "Docker login failed, continuing..."
-      
-      - name: Build and Install GTest
-        run: |
-          cd /usr/src/gtest
-          sudo cmake CMakeLists.txt
-          sudo make
-          sudo cp lib/*.a /usr/lib
-          sudo cp -r /usr/src/googletest/googletest/include/gtest /usr/include/
 
       - checkout
 
@@ -31,6 +23,14 @@ jobs:
           command: |
             sudo apt update
             sudo apt install -y cmake g++ ninja-build
+
+      - name: Build and Install GTest
+        run: |
+          cd /usr/src/gtest
+          sudo cmake CMakeLists.txt
+          sudo make
+          sudo cp lib/*.a /usr/lib
+          sudo cp -r /usr/src/googletest/googletest/include/gtest /usr/include/
 
       - run:
           name: Build Project
