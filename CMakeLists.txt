@@ -4,42 +4,39 @@ project(example)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 17)
 
-# Include the directory containing header files
-include_directories(${CMAKE_SOURCE_DIR}/include)
+find_package(GTest REQUIRED)
 
+# Add subdirectories for each component.
+add_subdirectory(components/calculator)
+add_subdirectory(components/logger)
+add_subdirectory(components/notifier)
 
-# Collect all source files for core functionality
-file(GLOB PROJECT_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")  # Assuming all core classes are in `src/`
-file(GLOB PROJECT_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")  # Assuming headers are in `include/`
-
-# Create a library for the core functionality
-add_library(example_lib ${PROJECT_SOURCES}) 
-
-# Main executable
+# Main executable using main.cpp.
 add_executable(example main.cpp)
-target_link_libraries(example example_lib)
-target_include_directories(example PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_link_libraries(example calculator logger notifier)
 
-# Enable testing
+# Enable testing.
 enable_testing()
 
-# Collect all test sources
-file(GLOB TEST_SOURCES "tests/*.cpp")
+# Add unit tests from each component's tests directory with unique binary directories.
+add_subdirectory(components/calculator/tests ${CMAKE_BINARY_DIR}/components/calculator/tests_bin)
+add_subdirectory(components/logger/tests ${CMAKE_BINARY_DIR}/components/logger/tests_bin)
+add_subdirectory(components/notifier/tests ${CMAKE_BINARY_DIR}/components/notifier/tests_bin)
 
-# Create test executables
-foreach(TEST_SOURCE ${TEST_SOURCES})
+# Add integration tests (assuming they reside in tests/integration)
+file(GLOB INTEGRATION_TEST_SOURCES "${CMAKE_SOURCE_DIR}/tests/integration/*.cpp")
+foreach(TEST_SOURCE ${INTEGRATION_TEST_SOURCES})
   get_filename_component(TEST_NAME ${TEST_SOURCE} NAME_WE)
   add_executable(${TEST_NAME} ${TEST_SOURCE})
-  
-  # Link the test executable with the core library
-  target_link_libraries(${TEST_NAME} example_lib)
-
-  # Ensure test files can include project headers
-  target_include_directories(${TEST_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/include)
-
-  # Register test with CTest
+  target_link_libraries(${TEST_NAME} calculator logger notifier GTest::Main GTest::GTest)
   add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
 endforeach()
 
-
-
+# Add end-to-end tests (assuming they reside in tests/e2e)
+file(GLOB E2E_TEST_SOURCES "${CMAKE_SOURCE_DIR}/tests/e2e/*.cpp")
+foreach(TEST_SOURCE ${E2E_TEST_SOURCES})
+  get_filename_component(TEST_NAME ${TEST_SOURCE} NAME_WE)
+  add_executable(${TEST_NAME} ${TEST_SOURCE})
+  target_link_libraries(${TEST_NAME} calculator logger notifier GTest::Main GTest::GTest)
+  add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+endforeach()

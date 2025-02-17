@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/hly/Desktop/tech-template
+CMAKE_SOURCE_DIR = /Users/adi/tech-template
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/hly/Desktop/tech-template/build
+CMAKE_BINARY_DIR = /Users/adi/tech-template/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/test_e2e.dir/depend.make
@@ -72,32 +72,36 @@ include CMakeFiles/test_e2e.dir/flags.make
 CMakeFiles/test_e2e.dir/codegen:
 .PHONY : CMakeFiles/test_e2e.dir/codegen
 
-CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o: CMakeFiles/test_e2e.dir/flags.make
-CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o: /Users/hly/Desktop/tech-template/tests/test_e2e.cpp
-CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o: CMakeFiles/test_e2e.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hly/Desktop/tech-template/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o -MF CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o.d -o CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o -c /Users/hly/Desktop/tech-template/tests/test_e2e.cpp
+CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o: CMakeFiles/test_e2e.dir/flags.make
+CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o: /Users/adi/tech-template/tests/e2e/test_e2e.cpp
+CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o: CMakeFiles/test_e2e.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/adi/tech-template/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o -MF CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o.d -o CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o -c /Users/adi/tech-template/tests/e2e/test_e2e.cpp
 
-CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hly/Desktop/tech-template/tests/test_e2e.cpp > CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.i
+CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/adi/tech-template/tests/e2e/test_e2e.cpp > CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.i
 
-CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hly/Desktop/tech-template/tests/test_e2e.cpp -o CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.s
+CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/adi/tech-template/tests/e2e/test_e2e.cpp -o CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.s
 
 # Object files for target test_e2e
 test_e2e_OBJECTS = \
-"CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o"
+"CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o"
 
 # External object files for target test_e2e
 test_e2e_EXTERNAL_OBJECTS =
 
-test_e2e: CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o
+test_e2e: CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o
 test_e2e: CMakeFiles/test_e2e.dir/build.make
-test_e2e: libexample_lib.a
+test_e2e: components/calculator/libcalculator.a
+test_e2e: components/logger/liblogger.a
+test_e2e: components/notifier/libnotifier.a
+test_e2e: /opt/homebrew/lib/libgtest_main.a
+test_e2e: /opt/homebrew/lib/libgtest.a
 test_e2e: CMakeFiles/test_e2e.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/hly/Desktop/tech-template/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_e2e"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/adi/tech-template/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_e2e"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_e2e.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -109,6 +113,6 @@ CMakeFiles/test_e2e.dir/clean:
 .PHONY : CMakeFiles/test_e2e.dir/clean
 
 CMakeFiles/test_e2e.dir/depend:
-	cd /Users/hly/Desktop/tech-template/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/hly/Desktop/tech-template /Users/hly/Desktop/tech-template /Users/hly/Desktop/tech-template/build /Users/hly/Desktop/tech-template/build /Users/hly/Desktop/tech-template/build/CMakeFiles/test_e2e.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/adi/tech-template/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/adi/tech-template /Users/adi/tech-template /Users/adi/tech-template/build /Users/adi/tech-template/build /Users/adi/tech-template/build/CMakeFiles/test_e2e.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/test_e2e.dir/depend
 

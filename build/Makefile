@@ -57,10 +57,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/hly/Desktop/tech-template
+CMAKE_SOURCE_DIR = /Users/adi/tech-template
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/hly/Desktop/tech-template/build
+CMAKE_BINARY_DIR = /Users/adi/tech-template/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -97,9 +97,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/hly/Desktop/tech-template/build/CMakeFiles /Users/hly/Desktop/tech-template/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/adi/tech-template/build/CMakeFiles /Users/adi/tech-template/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/hly/Desktop/tech-template/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/adi/tech-template/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -127,19 +127,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named example_lib
-
-# Build rule for target.
-example_lib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 example_lib
-.PHONY : example_lib
-
-# fast build rule for target.
-example_lib/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_lib.dir/build.make CMakeFiles/example_lib.dir/build
-.PHONY : example_lib/fast
-
-#=============================================================================
 # Target rules for targets named example
 
 # Build rule for target.
@@ -153,17 +140,30 @@ example/fast:
 .PHONY : example/fast
 
 #=============================================================================
-# Target rules for targets named test_calculator
+# Target rules for targets named test_calculator_logger
 
 # Build rule for target.
-test_calculator: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_calculator
-.PHONY : test_calculator
+test_calculator_logger: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_calculator_logger
+.PHONY : test_calculator_logger
 
 # fast build rule for target.
-test_calculator/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calculator.dir/build.make CMakeFiles/test_calculator.dir/build
-.PHONY : test_calculator/fast
+test_calculator_logger/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calculator_logger.dir/build.make CMakeFiles/test_calculator_logger.dir/build
+.PHONY : test_calculator_logger/fast
+
+#=============================================================================
+# Target rules for targets named test_logger_notifier
+
+# Build rule for target.
+test_logger_notifier: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_logger_notifier
+.PHONY : test_logger_notifier
+
+# fast build rule for target.
+test_logger_notifier/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_logger_notifier.dir/build.make CMakeFiles/test_logger_notifier.dir/build
+.PHONY : test_logger_notifier/fast
 
 #=============================================================================
 # Target rules for targets named test_e2e
@@ -179,85 +179,88 @@ test_e2e/fast:
 .PHONY : test_e2e/fast
 
 #=============================================================================
-# Target rules for targets named test_logger
+# Target rules for targets named calculator
 
 # Build rule for target.
-test_logger: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_logger
-.PHONY : test_logger
+calculator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 calculator
+.PHONY : calculator
 
 # fast build rule for target.
-test_logger/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_logger.dir/build.make CMakeFiles/test_logger.dir/build
-.PHONY : test_logger/fast
+calculator/fast:
+	$(MAKE) $(MAKESILENT) -f components/calculator/CMakeFiles/calculator.dir/build.make components/calculator/CMakeFiles/calculator.dir/build
+.PHONY : calculator/fast
 
 #=============================================================================
-# Target rules for targets named test_notifier
+# Target rules for targets named logger
 
 # Build rule for target.
-test_notifier: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_notifier
-.PHONY : test_notifier
+logger: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 logger
+.PHONY : logger
 
 # fast build rule for target.
-test_notifier/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_notifier.dir/build.make CMakeFiles/test_notifier.dir/build
-.PHONY : test_notifier/fast
+logger/fast:
+	$(MAKE) $(MAKESILENT) -f components/logger/CMakeFiles/logger.dir/build.make components/logger/CMakeFiles/logger.dir/build
+.PHONY : logger/fast
 
-calculator.o: calculator.cpp.o
-.PHONY : calculator.o
+#=============================================================================
+# Target rules for targets named notifier
 
-# target to build an object file
-calculator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_lib.dir/build.make CMakeFiles/example_lib.dir/calculator.cpp.o
-.PHONY : calculator.cpp.o
+# Build rule for target.
+notifier: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 notifier
+.PHONY : notifier
 
-calculator.i: calculator.cpp.i
-.PHONY : calculator.i
+# fast build rule for target.
+notifier/fast:
+	$(MAKE) $(MAKESILENT) -f components/notifier/CMakeFiles/notifier.dir/build.make components/notifier/CMakeFiles/notifier.dir/build
+.PHONY : notifier/fast
 
-# target to preprocess a source file
-calculator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_lib.dir/build.make CMakeFiles/example_lib.dir/calculator.cpp.i
-.PHONY : calculator.cpp.i
+#=============================================================================
+# Target rules for targets named unit_test_calculator
 
-calculator.s: calculator.cpp.s
-.PHONY : calculator.s
+# Build rule for target.
+unit_test_calculator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 unit_test_calculator
+.PHONY : unit_test_calculator
 
-# target to generate assembly for a file
-calculator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_lib.dir/build.make CMakeFiles/example_lib.dir/calculator.cpp.s
-.PHONY : calculator.cpp.s
+# fast build rule for target.
+unit_test_calculator/fast:
+	$(MAKE) $(MAKESILENT) -f components/calculator/tests_bin/CMakeFiles/unit_test_calculator.dir/build.make components/calculator/tests_bin/CMakeFiles/unit_test_calculator.dir/build
+.PHONY : unit_test_calculator/fast
 
-logger.o: logger.cpp.o
-.PHONY : logger.o
+#=============================================================================
+# Target rules for targets named unit_test_logger
 
-# target to build an object file
-logger.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_lib.dir/build.make CMakeFiles/example_lib.dir/logger.cpp.o
-.PHONY : logger.cpp.o
+# Build rule for target.
+unit_test_logger: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 unit_test_logger
+.PHONY : unit_test_logger
 
-logger.i: logger.cpp.i
-.PHONY : logger.i
+# fast build rule for target.
+unit_test_logger/fast:
+	$(MAKE) $(MAKESILENT) -f components/logger/tests_bin/CMakeFiles/unit_test_logger.dir/build.make components/logger/tests_bin/CMakeFiles/unit_test_logger.dir/build
+.PHONY : unit_test_logger/fast
 
-# target to preprocess a source file
-logger.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_lib.dir/build.make CMakeFiles/example_lib.dir/logger.cpp.i
-.PHONY : logger.cpp.i
+#=============================================================================
+# Target rules for targets named unit_test_notifier
 
-logger.s: logger.cpp.s
-.PHONY : logger.s
+# Build rule for target.
+unit_test_notifier: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 unit_test_notifier
+.PHONY : unit_test_notifier
 
-# target to generate assembly for a file
-logger.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_lib.dir/build.make CMakeFiles/example_lib.dir/logger.cpp.s
-.PHONY : logger.cpp.s
+# fast build rule for target.
+unit_test_notifier/fast:
+	$(MAKE) $(MAKESILENT) -f components/notifier/tests_bin/CMakeFiles/unit_test_notifier.dir/build.make components/notifier/tests_bin/CMakeFiles/unit_test_notifier.dir/build
+.PHONY : unit_test_notifier/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_lib.dir/build.make CMakeFiles/example_lib.dir/main.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/main.cpp.o
 .PHONY : main.cpp.o
 
@@ -266,7 +269,6 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_lib.dir/build.make CMakeFiles/example_lib.dir/main.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/main.cpp.i
 .PHONY : main.cpp.i
 
@@ -275,129 +277,80 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_lib.dir/build.make CMakeFiles/example_lib.dir/main.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-notifier.o: notifier.cpp.o
-.PHONY : notifier.o
+tests/e2e/test_e2e.o: tests/e2e/test_e2e.cpp.o
+.PHONY : tests/e2e/test_e2e.o
 
 # target to build an object file
-notifier.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_lib.dir/build.make CMakeFiles/example_lib.dir/notifier.cpp.o
-.PHONY : notifier.cpp.o
+tests/e2e/test_e2e.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_e2e.dir/build.make CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o
+.PHONY : tests/e2e/test_e2e.cpp.o
 
-notifier.i: notifier.cpp.i
-.PHONY : notifier.i
+tests/e2e/test_e2e.i: tests/e2e/test_e2e.cpp.i
+.PHONY : tests/e2e/test_e2e.i
 
 # target to preprocess a source file
-notifier.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_lib.dir/build.make CMakeFiles/example_lib.dir/notifier.cpp.i
-.PHONY : notifier.cpp.i
+tests/e2e/test_e2e.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_e2e.dir/build.make CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.i
+.PHONY : tests/e2e/test_e2e.cpp.i
 
-notifier.s: notifier.cpp.s
-.PHONY : notifier.s
+tests/e2e/test_e2e.s: tests/e2e/test_e2e.cpp.s
+.PHONY : tests/e2e/test_e2e.s
 
 # target to generate assembly for a file
-notifier.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example_lib.dir/build.make CMakeFiles/example_lib.dir/notifier.cpp.s
-.PHONY : notifier.cpp.s
+tests/e2e/test_e2e.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_e2e.dir/build.make CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.s
+.PHONY : tests/e2e/test_e2e.cpp.s
 
-tests/test_calculator.o: tests/test_calculator.cpp.o
-.PHONY : tests/test_calculator.o
+tests/integration/test_calculator_logger.o: tests/integration/test_calculator_logger.cpp.o
+.PHONY : tests/integration/test_calculator_logger.o
 
 # target to build an object file
-tests/test_calculator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calculator.dir/build.make CMakeFiles/test_calculator.dir/tests/test_calculator.cpp.o
-.PHONY : tests/test_calculator.cpp.o
+tests/integration/test_calculator_logger.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calculator_logger.dir/build.make CMakeFiles/test_calculator_logger.dir/tests/integration/test_calculator_logger.cpp.o
+.PHONY : tests/integration/test_calculator_logger.cpp.o
 
-tests/test_calculator.i: tests/test_calculator.cpp.i
-.PHONY : tests/test_calculator.i
+tests/integration/test_calculator_logger.i: tests/integration/test_calculator_logger.cpp.i
+.PHONY : tests/integration/test_calculator_logger.i
 
 # target to preprocess a source file
-tests/test_calculator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calculator.dir/build.make CMakeFiles/test_calculator.dir/tests/test_calculator.cpp.i
-.PHONY : tests/test_calculator.cpp.i
+tests/integration/test_calculator_logger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calculator_logger.dir/build.make CMakeFiles/test_calculator_logger.dir/tests/integration/test_calculator_logger.cpp.i
+.PHONY : tests/integration/test_calculator_logger.cpp.i
 
-tests/test_calculator.s: tests/test_calculator.cpp.s
-.PHONY : tests/test_calculator.s
+tests/integration/test_calculator_logger.s: tests/integration/test_calculator_logger.cpp.s
+.PHONY : tests/integration/test_calculator_logger.s
 
 # target to generate assembly for a file
-tests/test_calculator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calculator.dir/build.make CMakeFiles/test_calculator.dir/tests/test_calculator.cpp.s
-.PHONY : tests/test_calculator.cpp.s
+tests/integration/test_calculator_logger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_calculator_logger.dir/build.make CMakeFiles/test_calculator_logger.dir/tests/integration/test_calculator_logger.cpp.s
+.PHONY : tests/integration/test_calculator_logger.cpp.s
 
-tests/test_e2e.o: tests/test_e2e.cpp.o
-.PHONY : tests/test_e2e.o
+tests/integration/test_logger_notifier.o: tests/integration/test_logger_notifier.cpp.o
+.PHONY : tests/integration/test_logger_notifier.o
 
 # target to build an object file
-tests/test_e2e.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_e2e.dir/build.make CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o
-.PHONY : tests/test_e2e.cpp.o
+tests/integration/test_logger_notifier.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_logger_notifier.dir/build.make CMakeFiles/test_logger_notifier.dir/tests/integration/test_logger_notifier.cpp.o
+.PHONY : tests/integration/test_logger_notifier.cpp.o
 
-tests/test_e2e.i: tests/test_e2e.cpp.i
-.PHONY : tests/test_e2e.i
-
-# target to preprocess a source file
-tests/test_e2e.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_e2e.dir/build.make CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.i
-.PHONY : tests/test_e2e.cpp.i
-
-tests/test_e2e.s: tests/test_e2e.cpp.s
-.PHONY : tests/test_e2e.s
-
-# target to generate assembly for a file
-tests/test_e2e.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_e2e.dir/build.make CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.s
-.PHONY : tests/test_e2e.cpp.s
-
-tests/test_logger.o: tests/test_logger.cpp.o
-.PHONY : tests/test_logger.o
-
-# target to build an object file
-tests/test_logger.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_logger.dir/build.make CMakeFiles/test_logger.dir/tests/test_logger.cpp.o
-.PHONY : tests/test_logger.cpp.o
-
-tests/test_logger.i: tests/test_logger.cpp.i
-.PHONY : tests/test_logger.i
+tests/integration/test_logger_notifier.i: tests/integration/test_logger_notifier.cpp.i
+.PHONY : tests/integration/test_logger_notifier.i
 
 # target to preprocess a source file
-tests/test_logger.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_logger.dir/build.make CMakeFiles/test_logger.dir/tests/test_logger.cpp.i
-.PHONY : tests/test_logger.cpp.i
+tests/integration/test_logger_notifier.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_logger_notifier.dir/build.make CMakeFiles/test_logger_notifier.dir/tests/integration/test_logger_notifier.cpp.i
+.PHONY : tests/integration/test_logger_notifier.cpp.i
 
-tests/test_logger.s: tests/test_logger.cpp.s
-.PHONY : tests/test_logger.s
-
-# target to generate assembly for a file
-tests/test_logger.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_logger.dir/build.make CMakeFiles/test_logger.dir/tests/test_logger.cpp.s
-.PHONY : tests/test_logger.cpp.s
-
-tests/test_notifier.o: tests/test_notifier.cpp.o
-.PHONY : tests/test_notifier.o
-
-# target to build an object file
-tests/test_notifier.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_notifier.dir/build.make CMakeFiles/test_notifier.dir/tests/test_notifier.cpp.o
-.PHONY : tests/test_notifier.cpp.o
-
-tests/test_notifier.i: tests/test_notifier.cpp.i
-.PHONY : tests/test_notifier.i
-
-# target to preprocess a source file
-tests/test_notifier.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_notifier.dir/build.make CMakeFiles/test_notifier.dir/tests/test_notifier.cpp.i
-.PHONY : tests/test_notifier.cpp.i
-
-tests/test_notifier.s: tests/test_notifier.cpp.s
-.PHONY : tests/test_notifier.s
+tests/integration/test_logger_notifier.s: tests/integration/test_logger_notifier.cpp.s
+.PHONY : tests/integration/test_logger_notifier.s
 
 # target to generate assembly for a file
-tests/test_notifier.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_notifier.dir/build.make CMakeFiles/test_notifier.dir/tests/test_notifier.cpp.s
-.PHONY : tests/test_notifier.cpp.s
+tests/integration/test_logger_notifier.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_logger_notifier.dir/build.make CMakeFiles/test_logger_notifier.dir/tests/integration/test_logger_notifier.cpp.s
+.PHONY : tests/integration/test_logger_notifier.cpp.s
 
 # Help Target
 help:
@@ -408,36 +361,28 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... calculator"
 	@echo "... example"
-	@echo "... example_lib"
-	@echo "... test_calculator"
+	@echo "... logger"
+	@echo "... notifier"
+	@echo "... test_calculator_logger"
 	@echo "... test_e2e"
-	@echo "... test_logger"
-	@echo "... test_notifier"
-	@echo "... calculator.o"
-	@echo "... calculator.i"
-	@echo "... calculator.s"
-	@echo "... logger.o"
-	@echo "... logger.i"
-	@echo "... logger.s"
+	@echo "... test_logger_notifier"
+	@echo "... unit_test_calculator"
+	@echo "... unit_test_logger"
+	@echo "... unit_test_notifier"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... notifier.o"
-	@echo "... notifier.i"
-	@echo "... notifier.s"
-	@echo "... tests/test_calculator.o"
-	@echo "... tests/test_calculator.i"
-	@echo "... tests/test_calculator.s"
-	@echo "... tests/test_e2e.o"
-	@echo "... tests/test_e2e.i"
-	@echo "... tests/test_e2e.s"
-	@echo "... tests/test_logger.o"
-	@echo "... tests/test_logger.i"
-	@echo "... tests/test_logger.s"
-	@echo "... tests/test_notifier.o"
-	@echo "... tests/test_notifier.i"
-	@echo "... tests/test_notifier.s"
+	@echo "... tests/e2e/test_e2e.o"
+	@echo "... tests/e2e/test_e2e.i"
+	@echo "... tests/e2e/test_e2e.s"
+	@echo "... tests/integration/test_calculator_logger.o"
+	@echo "... tests/integration/test_calculator_logger.i"
+	@echo "... tests/integration/test_calculator_logger.s"
+	@echo "... tests/integration/test_logger_notifier.o"
+	@echo "... tests/integration/test_logger_notifier.i"
+	@echo "... tests/integration/test_logger_notifier.s"
 .PHONY : help
 
 

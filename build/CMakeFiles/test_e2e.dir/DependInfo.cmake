@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/hly/Desktop/tech-template/tests/test_e2e.cpp" "CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o" "gcc" "CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o.d"
+  "/Users/adi/tech-template/tests/e2e/test_e2e.cpp" "CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o" "gcc" "CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

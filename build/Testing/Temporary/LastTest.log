@@ -1,67 +1,161 @@
-Start testing: Feb 16 19:35 EST
+Start testing: Feb 16 22:07 EST
 ----------------------------------------------------------
-1/4 Testing: test_calculator
-1/4 Test: test_calculator
-Command: "/Users/hly/Desktop/tech-template/build/test_calculator"
-Directory: /Users/hly/Desktop/tech-template/build
-"test_calculator" start time: Feb 16 19:35 EST
+1/6 Testing: test_calculator_logger
+1/6 Test: test_calculator_logger
+Command: "/Users/adi/tech-template/build/test_calculator_logger"
+Directory: /Users/adi/tech-template/build
+"test_calculator_logger" start time: Feb 16 22:07 EST
 Output:
 ----------------------------------------------------------
-All tests passed!
+Running main() from /tmp/googletest-20250207-4735-e28tfc/googletest-1.16.0/googletest/src/gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from IntegrationTest
+[ RUN      ] IntegrationTest.CalculatorLogger_MockNotifier
+[       OK ] IntegrationTest.CalculatorLogger_MockNotifier (0 ms)
+[----------] 1 test from IntegrationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
 <end of output>
-Test time =   0.13 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"test_calculator" end time: Feb 16 19:35 EST
-"test_calculator" time elapsed: 00:00:00
+"test_calculator_logger" end time: Feb 16 22:07 EST
+"test_calculator_logger" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/4 Testing: test_e2e
-2/4 Test: test_e2e
-Command: "/Users/hly/Desktop/tech-template/build/test_e2e"
-Directory: /Users/hly/Desktop/tech-template/build
-"test_e2e" start time: Feb 16 19:35 EST
+2/6 Testing: test_logger_notifier
+2/6 Test: test_logger_notifier
+Command: "/Users/adi/tech-template/build/test_logger_notifier"
+Directory: /Users/adi/tech-template/build
+"test_logger_notifier" start time: Feb 16 22:07 EST
 Output:
 ----------------------------------------------------------
-End-to-End Test Passed!
+Running main() from /tmp/googletest-20250207-4735-e28tfc/googletest-1.16.0/googletest/src/gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from IntegrationTest
+[ RUN      ] IntegrationTest.LoggerNotifier_MockCalculator
+[       OK ] IntegrationTest.LoggerNotifier_MockCalculator (0 ms)
+[----------] 1 test from IntegrationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
 <end of output>
-Test time =   0.14 sec
+Test time =   0.10 sec
 ----------------------------------------------------------
 Test Passed.
-"test_e2e" end time: Feb 16 19:35 EST
+"test_logger_notifier" end time: Feb 16 22:07 EST
+"test_logger_notifier" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: test_e2e
+3/6 Test: test_e2e
+Command: "/Users/adi/tech-template/build/test_e2e"
+Directory: /Users/adi/tech-template/build
+"test_e2e" start time: Feb 16 22:07 EST
+Output:
+----------------------------------------------------------
+Running main() from /tmp/googletest-20250207-4735-e28tfc/googletest-1.16.0/googletest/src/gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from EndToEndTest
+[ RUN      ] EndToEndTest.FullWorkflow
+[       OK ] EndToEndTest.FullWorkflow (0 ms)
+[----------] 1 test from EndToEndTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"test_e2e" end time: Feb 16 22:07 EST
 "test_e2e" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-3/4 Testing: test_logger
-3/4 Test: test_logger
-Command: "/Users/hly/Desktop/tech-template/build/test_logger"
-Directory: /Users/hly/Desktop/tech-template/build
-"test_logger" start time: Feb 16 19:35 EST
+4/6 Testing: unit_test_calculator
+4/6 Test: unit_test_calculator
+Command: "/Users/adi/tech-template/build/components/calculator/tests_bin/unit_test_calculator"
+Directory: /Users/adi/tech-template/build/components/calculator/tests_bin
+"unit_test_calculator" start time: Feb 16 22:07 EST
 Output:
 ----------------------------------------------------------
-Logger Test Passed!
+Running main() from /tmp/googletest-20250207-4735-e28tfc/googletest-1.16.0/googletest/src/gtest_main.cc
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from CalculatorTest
+[ RUN      ] CalculatorTest.BasicOperations
+[       OK ] CalculatorTest.BasicOperations (0 ms)
+[ RUN      ] CalculatorTest.DivisionByZeroThrows
+[       OK ] CalculatorTest.DivisionByZeroThrows (0 ms)
+[----------] 2 tests from CalculatorTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 2 tests.
 <end of output>
-Test time =   0.14 sec
+Test time =   0.10 sec
 ----------------------------------------------------------
 Test Passed.
-"test_logger" end time: Feb 16 19:35 EST
-"test_logger" time elapsed: 00:00:00
+"unit_test_calculator" end time: Feb 16 22:07 EST
+"unit_test_calculator" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-4/4 Testing: test_notifier
-4/4 Test: test_notifier
-Command: "/Users/hly/Desktop/tech-template/build/test_notifier"
-Directory: /Users/hly/Desktop/tech-template/build
-"test_notifier" start time: Feb 16 19:35 EST
+5/6 Testing: unit_test_logger
+5/6 Test: unit_test_logger
+Command: "/Users/adi/tech-template/build/components/logger/tests_bin/unit_test_logger"
+Directory: /Users/adi/tech-template/build/components/logger/tests_bin
+"unit_test_logger" start time: Feb 16 22:07 EST
 Output:
 ----------------------------------------------------------
-All tests passed!
+Running main() from /tmp/googletest-20250207-4735-e28tfc/googletest-1.16.0/googletest/src/gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from LoggerTest
+[ RUN      ] LoggerTest.LogOperations
+[       OK ] LoggerTest.LogOperations (0 ms)
+[----------] 1 test from LoggerTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
 <end of output>
-Test time =   0.13 sec
+Test time =   0.10 sec
 ----------------------------------------------------------
 Test Passed.
-"test_notifier" end time: Feb 16 19:35 EST
-"test_notifier" time elapsed: 00:00:00
+"unit_test_logger" end time: Feb 16 22:07 EST
+"unit_test_logger" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Feb 16 19:35 EST
+6/6 Testing: unit_test_notifier
+6/6 Test: unit_test_notifier
+Command: "/Users/adi/tech-template/build/components/notifier/tests_bin/unit_test_notifier"
+Directory: /Users/adi/tech-template/build/components/notifier/tests_bin
+"unit_test_notifier" start time: Feb 16 22:07 EST
+Output:
+----------------------------------------------------------
+Running main() from /tmp/googletest-20250207-4735-e28tfc/googletest-1.16.0/googletest/src/gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from NotifierTest
+[ RUN      ] NotifierTest.CheckNotifications
+[       OK ] NotifierTest.CheckNotifications (0 ms)
+[----------] 1 test from NotifierTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"unit_test_notifier" end time: Feb 16 22:07 EST
+"unit_test_notifier" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 16 22:07 EST

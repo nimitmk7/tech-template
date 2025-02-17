@@ -1,56 +1,62 @@
 [
 {
-  "directory": "/Users/hly/Desktop/tech-template/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/example_lib.dir/calculator.cpp.o -c /Users/hly/Desktop/tech-template/calculator.cpp",
-  "file": "/Users/hly/Desktop/tech-template/calculator.cpp",
-  "output": "CMakeFiles/example_lib.dir/calculator.cpp.o"
-},
-{
-  "directory": "/Users/hly/Desktop/tech-template/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/example_lib.dir/logger.cpp.o -c /Users/hly/Desktop/tech-template/logger.cpp",
-  "file": "/Users/hly/Desktop/tech-template/logger.cpp",
-  "output": "CMakeFiles/example_lib.dir/logger.cpp.o"
-},
-{
-  "directory": "/Users/hly/Desktop/tech-template/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/example_lib.dir/main.cpp.o -c /Users/hly/Desktop/tech-template/main.cpp",
-  "file": "/Users/hly/Desktop/tech-template/main.cpp",
-  "output": "CMakeFiles/example_lib.dir/main.cpp.o"
-},
-{
-  "directory": "/Users/hly/Desktop/tech-template/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/example_lib.dir/notifier.cpp.o -c /Users/hly/Desktop/tech-template/notifier.cpp",
-  "file": "/Users/hly/Desktop/tech-template/notifier.cpp",
-  "output": "CMakeFiles/example_lib.dir/notifier.cpp.o"
-},
-{
-  "directory": "/Users/hly/Desktop/tech-template/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/example.dir/main.cpp.o -c /Users/hly/Desktop/tech-template/main.cpp",
-  "file": "/Users/hly/Desktop/tech-template/main.cpp",
+  "directory": "/Users/adi/tech-template/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/adi/tech-template/components/calculator -I/Users/adi/tech-template/components/logger -I/Users/adi/tech-template/components/notifier -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -o CMakeFiles/example.dir/main.cpp.o -c /Users/adi/tech-template/main.cpp",
+  "file": "/Users/adi/tech-template/main.cpp",
   "output": "CMakeFiles/example.dir/main.cpp.o"
 },
 {
-  "directory": "/Users/hly/Desktop/tech-template/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/test_calculator.dir/tests/test_calculator.cpp.o -c /Users/hly/Desktop/tech-template/tests/test_calculator.cpp",
-  "file": "/Users/hly/Desktop/tech-template/tests/test_calculator.cpp",
-  "output": "CMakeFiles/test_calculator.dir/tests/test_calculator.cpp.o"
+  "directory": "/Users/adi/tech-template/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/adi/tech-template/components/calculator -I/Users/adi/tech-template/components/logger -I/Users/adi/tech-template/components/notifier -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -o CMakeFiles/test_calculator_logger.dir/tests/integration/test_calculator_logger.cpp.o -c /Users/adi/tech-template/tests/integration/test_calculator_logger.cpp",
+  "file": "/Users/adi/tech-template/tests/integration/test_calculator_logger.cpp",
+  "output": "CMakeFiles/test_calculator_logger.dir/tests/integration/test_calculator_logger.cpp.o"
 },
 {
-  "directory": "/Users/hly/Desktop/tech-template/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o -c /Users/hly/Desktop/tech-template/tests/test_e2e.cpp",
-  "file": "/Users/hly/Desktop/tech-template/tests/test_e2e.cpp",
-  "output": "CMakeFiles/test_e2e.dir/tests/test_e2e.cpp.o"
+  "directory": "/Users/adi/tech-template/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/adi/tech-template/components/calculator -I/Users/adi/tech-template/components/logger -I/Users/adi/tech-template/components/notifier -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -o CMakeFiles/test_logger_notifier.dir/tests/integration/test_logger_notifier.cpp.o -c /Users/adi/tech-template/tests/integration/test_logger_notifier.cpp",
+  "file": "/Users/adi/tech-template/tests/integration/test_logger_notifier.cpp",
+  "output": "CMakeFiles/test_logger_notifier.dir/tests/integration/test_logger_notifier.cpp.o"
 },
 {
-  "directory": "/Users/hly/Desktop/tech-template/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/test_logger.dir/tests/test_logger.cpp.o -c /Users/hly/Desktop/tech-template/tests/test_logger.cpp",
-  "file": "/Users/hly/Desktop/tech-template/tests/test_logger.cpp",
-  "output": "CMakeFiles/test_logger.dir/tests/test_logger.cpp.o"
+  "directory": "/Users/adi/tech-template/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/adi/tech-template/components/calculator -I/Users/adi/tech-template/components/logger -I/Users/adi/tech-template/components/notifier -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -o CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o -c /Users/adi/tech-template/tests/e2e/test_e2e.cpp",
+  "file": "/Users/adi/tech-template/tests/e2e/test_e2e.cpp",
+  "output": "CMakeFiles/test_e2e.dir/tests/e2e/test_e2e.cpp.o"
 },
 {
-  "directory": "/Users/hly/Desktop/tech-template/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/hly/Desktop/tech-template/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/test_notifier.dir/tests/test_notifier.cpp.o -c /Users/hly/Desktop/tech-template/tests/test_notifier.cpp",
-  "file": "/Users/hly/Desktop/tech-template/tests/test_notifier.cpp",
-  "output": "CMakeFiles/test_notifier.dir/tests/test_notifier.cpp.o"
+  "directory": "/Users/adi/tech-template/build/components/calculator",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/adi/tech-template/components/calculator -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -o CMakeFiles/calculator.dir/Calculator.cpp.o -c /Users/adi/tech-template/components/calculator/Calculator.cpp",
+  "file": "/Users/adi/tech-template/components/calculator/Calculator.cpp",
+  "output": "components/calculator/CMakeFiles/calculator.dir/Calculator.cpp.o"
+},
+{
+  "directory": "/Users/adi/tech-template/build/components/logger",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/adi/tech-template/components/logger -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -o CMakeFiles/logger.dir/logger.cpp.o -c /Users/adi/tech-template/components/logger/logger.cpp",
+  "file": "/Users/adi/tech-template/components/logger/logger.cpp",
+  "output": "components/logger/CMakeFiles/logger.dir/logger.cpp.o"
+},
+{
+  "directory": "/Users/adi/tech-template/build/components/notifier",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/adi/tech-template/components/notifier -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -o CMakeFiles/notifier.dir/notifier.cpp.o -c /Users/adi/tech-template/components/notifier/notifier.cpp",
+  "file": "/Users/adi/tech-template/components/notifier/notifier.cpp",
+  "output": "components/notifier/CMakeFiles/notifier.dir/notifier.cpp.o"
+},
+{
+  "directory": "/Users/adi/tech-template/build/components/calculator/tests_bin",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/adi/tech-template/components/calculator -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -o CMakeFiles/unit_test_calculator.dir/test_calculator.cpp.o -c /Users/adi/tech-template/components/calculator/tests/test_calculator.cpp",
+  "file": "/Users/adi/tech-template/components/calculator/tests/test_calculator.cpp",
+  "output": "components/calculator/tests_bin/CMakeFiles/unit_test_calculator.dir/test_calculator.cpp.o"
+},
+{
+  "directory": "/Users/adi/tech-template/build/components/logger/tests_bin",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/adi/tech-template/components/logger -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -o CMakeFiles/unit_test_logger.dir/test_logger.cpp.o -c /Users/adi/tech-template/components/logger/tests/test_logger.cpp",
+  "file": "/Users/adi/tech-template/components/logger/tests/test_logger.cpp",
+  "output": "components/logger/tests_bin/CMakeFiles/unit_test_logger.dir/test_logger.cpp.o"
+},
+{
+  "directory": "/Users/adi/tech-template/build/components/notifier/tests_bin",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/adi/tech-template/components/notifier -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -o CMakeFiles/unit_test_notifier.dir/test_notifier.cpp.o -c /Users/adi/tech-template/components/notifier/tests/test_notifier.cpp",
+  "file": "/Users/adi/tech-template/components/notifier/tests/test_notifier.cpp",
+  "output": "components/notifier/tests_bin/CMakeFiles/unit_test_notifier.dir/test_notifier.cpp.o"
 }
 ]
