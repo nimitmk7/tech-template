@@ -76,57 +76,57 @@ CMakeFiles/example_lib.dir/calculator.cpp.o: CMakeFiles/example_lib.dir/flags.ma
 CMakeFiles/example_lib.dir/calculator.cpp.o: /Users/hly/Desktop/tech-template/calculator.cpp
 CMakeFiles/example_lib.dir/calculator.cpp.o: CMakeFiles/example_lib.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hly/Desktop/tech-template/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/example_lib.dir/calculator.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/example_lib.dir/calculator.cpp.o -MF CMakeFiles/example_lib.dir/calculator.cpp.o.d -o CMakeFiles/example_lib.dir/calculator.cpp.o -c /Users/hly/Desktop/tech-template/calculator.cpp
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/example_lib.dir/calculator.cpp.o -MF CMakeFiles/example_lib.dir/calculator.cpp.o.d -o CMakeFiles/example_lib.dir/calculator.cpp.o -c /Users/hly/Desktop/tech-template/calculator.cpp
 
 CMakeFiles/example_lib.dir/calculator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/example_lib.dir/calculator.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hly/Desktop/tech-template/calculator.cpp > CMakeFiles/example_lib.dir/calculator.cpp.i
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hly/Desktop/tech-template/calculator.cpp > CMakeFiles/example_lib.dir/calculator.cpp.i
 
 CMakeFiles/example_lib.dir/calculator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/example_lib.dir/calculator.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hly/Desktop/tech-template/calculator.cpp -o CMakeFiles/example_lib.dir/calculator.cpp.s
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hly/Desktop/tech-template/calculator.cpp -o CMakeFiles/example_lib.dir/calculator.cpp.s
 
 CMakeFiles/example_lib.dir/logger.cpp.o: CMakeFiles/example_lib.dir/flags.make
 CMakeFiles/example_lib.dir/logger.cpp.o: /Users/hly/Desktop/tech-template/logger.cpp
 CMakeFiles/example_lib.dir/logger.cpp.o: CMakeFiles/example_lib.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hly/Desktop/tech-template/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/example_lib.dir/logger.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/example_lib.dir/logger.cpp.o -MF CMakeFiles/example_lib.dir/logger.cpp.o.d -o CMakeFiles/example_lib.dir/logger.cpp.o -c /Users/hly/Desktop/tech-template/logger.cpp
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/example_lib.dir/logger.cpp.o -MF CMakeFiles/example_lib.dir/logger.cpp.o.d -o CMakeFiles/example_lib.dir/logger.cpp.o -c /Users/hly/Desktop/tech-template/logger.cpp
 
 CMakeFiles/example_lib.dir/logger.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/example_lib.dir/logger.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hly/Desktop/tech-template/logger.cpp > CMakeFiles/example_lib.dir/logger.cpp.i
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hly/Desktop/tech-template/logger.cpp > CMakeFiles/example_lib.dir/logger.cpp.i
 
 CMakeFiles/example_lib.dir/logger.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/example_lib.dir/logger.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hly/Desktop/tech-template/logger.cpp -o CMakeFiles/example_lib.dir/logger.cpp.s
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hly/Desktop/tech-template/logger.cpp -o CMakeFiles/example_lib.dir/logger.cpp.s
 
 CMakeFiles/example_lib.dir/main.cpp.o: CMakeFiles/example_lib.dir/flags.make
 CMakeFiles/example_lib.dir/main.cpp.o: /Users/hly/Desktop/tech-template/main.cpp
 CMakeFiles/example_lib.dir/main.cpp.o: CMakeFiles/example_lib.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hly/Desktop/tech-template/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/example_lib.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/example_lib.dir/main.cpp.o -MF CMakeFiles/example_lib.dir/main.cpp.o.d -o CMakeFiles/example_lib.dir/main.cpp.o -c /Users/hly/Desktop/tech-template/main.cpp
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/example_lib.dir/main.cpp.o -MF CMakeFiles/example_lib.dir/main.cpp.o.d -o CMakeFiles/example_lib.dir/main.cpp.o -c /Users/hly/Desktop/tech-template/main.cpp
 
 CMakeFiles/example_lib.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/example_lib.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hly/Desktop/tech-template/main.cpp > CMakeFiles/example_lib.dir/main.cpp.i
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hly/Desktop/tech-template/main.cpp > CMakeFiles/example_lib.dir/main.cpp.i
 
 CMakeFiles/example_lib.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/example_lib.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hly/Desktop/tech-template/main.cpp -o CMakeFiles/example_lib.dir/main.cpp.s
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hly/Desktop/tech-template/main.cpp -o CMakeFiles/example_lib.dir/main.cpp.s
 
 CMakeFiles/example_lib.dir/notifier.cpp.o: CMakeFiles/example_lib.dir/flags.make
 CMakeFiles/example_lib.dir/notifier.cpp.o: /Users/hly/Desktop/tech-template/notifier.cpp
 CMakeFiles/example_lib.dir/notifier.cpp.o: CMakeFiles/example_lib.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hly/Desktop/tech-template/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/example_lib.dir/notifier.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/example_lib.dir/notifier.cpp.o -MF CMakeFiles/example_lib.dir/notifier.cpp.o.d -o CMakeFiles/example_lib.dir/notifier.cpp.o -c /Users/hly/Desktop/tech-template/notifier.cpp
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/example_lib.dir/notifier.cpp.o -MF CMakeFiles/example_lib.dir/notifier.cpp.o.d -o CMakeFiles/example_lib.dir/notifier.cpp.o -c /Users/hly/Desktop/tech-template/notifier.cpp
 
 CMakeFiles/example_lib.dir/notifier.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/example_lib.dir/notifier.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hly/Desktop/tech-template/notifier.cpp > CMakeFiles/example_lib.dir/notifier.cpp.i
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hly/Desktop/tech-template/notifier.cpp > CMakeFiles/example_lib.dir/notifier.cpp.i
 
 CMakeFiles/example_lib.dir/notifier.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/example_lib.dir/notifier.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hly/Desktop/tech-template/notifier.cpp -o CMakeFiles/example_lib.dir/notifier.cpp.s
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hly/Desktop/tech-template/notifier.cpp -o CMakeFiles/example_lib.dir/notifier.cpp.s
 
 # Object files for target example_lib
 example_lib_OBJECTS = \

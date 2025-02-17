@@ -1,18 +1,18 @@
-Start testing: Feb 16 19:35 EST
+Start testing: Feb 16 20:35 EST
 ----------------------------------------------------------
 1/4 Testing: test_calculator
 1/4 Test: test_calculator
 Command: "/Users/hly/Desktop/tech-template/build/test_calculator"
 Directory: /Users/hly/Desktop/tech-template/build
-"test_calculator" start time: Feb 16 19:35 EST
+"test_calculator" start time: Feb 16 20:35 EST
 Output:
 ----------------------------------------------------------
 All tests passed!
 <end of output>
-Test time =   0.13 sec
+Test time =   0.18 sec
 ----------------------------------------------------------
 Test Passed.
-"test_calculator" end time: Feb 16 19:35 EST
+"test_calculator" end time: Feb 16 20:35 EST
 "test_calculator" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -20,15 +20,15 @@ Test Passed.
 2/4 Test: test_e2e
 Command: "/Users/hly/Desktop/tech-template/build/test_e2e"
 Directory: /Users/hly/Desktop/tech-template/build
-"test_e2e" start time: Feb 16 19:35 EST
+"test_e2e" start time: Feb 16 20:35 EST
 Output:
 ----------------------------------------------------------
 End-to-End Test Passed!
 <end of output>
-Test time =   0.14 sec
+Test time =   0.15 sec
 ----------------------------------------------------------
 Test Passed.
-"test_e2e" end time: Feb 16 19:35 EST
+"test_e2e" end time: Feb 16 20:35 EST
 "test_e2e" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -36,15 +36,15 @@ Test Passed.
 3/4 Test: test_logger
 Command: "/Users/hly/Desktop/tech-template/build/test_logger"
 Directory: /Users/hly/Desktop/tech-template/build
-"test_logger" start time: Feb 16 19:35 EST
+"test_logger" start time: Feb 16 20:35 EST
 Output:
 ----------------------------------------------------------
 Logger Test Passed!
 <end of output>
-Test time =   0.14 sec
+Test time =   0.15 sec
 ----------------------------------------------------------
 Test Passed.
-"test_logger" end time: Feb 16 19:35 EST
+"test_logger" end time: Feb 16 20:35 EST
 "test_logger" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -52,16 +52,16 @@ Test Passed.
 4/4 Test: test_notifier
 Command: "/Users/hly/Desktop/tech-template/build/test_notifier"
 Directory: /Users/hly/Desktop/tech-template/build
-"test_notifier" start time: Feb 16 19:35 EST
+"test_notifier" start time: Feb 16 20:35 EST
 Output:
 ----------------------------------------------------------
 All tests passed!
 <end of output>
-Test time =   0.13 sec
+Test time =   0.14 sec
 ----------------------------------------------------------
 Test Passed.
-"test_notifier" end time: Feb 16 19:35 EST
+"test_notifier" end time: Feb 16 20:35 EST
 "test_notifier" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Feb 16 19:35 EST
+End testing: Feb 16 20:35 EST

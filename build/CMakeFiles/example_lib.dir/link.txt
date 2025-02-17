@@ -1,2 +1,2 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libexample_lib.a CMakeFiles/example_lib.dir/calculator.cpp.o CMakeFiles/example_lib.dir/logger.cpp.o CMakeFiles/example_lib.dir/main.cpp.o CMakeFiles/example_lib.dir/notifier.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libexample_lib.a
+/usr/bin/ar qc libexample_lib.a CMakeFiles/example_lib.dir/calculator.cpp.o CMakeFiles/example_lib.dir/logger.cpp.o CMakeFiles/example_lib.dir/main.cpp.o CMakeFiles/example_lib.dir/notifier.cpp.o
+/opt/homebrew/opt/llvm/bin/llvm-ranlib libexample_lib.a

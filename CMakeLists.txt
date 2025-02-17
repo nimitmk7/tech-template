@@ -41,5 +41,8 @@ foreach(TEST_SOURCE ${TEST_SOURCES})
   add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
 endforeach()
 
-
-
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+    message(STATUS "Enabling Code Coverage")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage --coverage")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage --coverage")
+endif()

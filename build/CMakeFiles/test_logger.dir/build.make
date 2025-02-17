@@ -76,15 +76,15 @@ CMakeFiles/test_logger.dir/tests/test_logger.cpp.o: CMakeFiles/test_logger.dir/f
 CMakeFiles/test_logger.dir/tests/test_logger.cpp.o: /Users/hly/Desktop/tech-template/tests/test_logger.cpp
 CMakeFiles/test_logger.dir/tests/test_logger.cpp.o: CMakeFiles/test_logger.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hly/Desktop/tech-template/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test_logger.dir/tests/test_logger.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_logger.dir/tests/test_logger.cpp.o -MF CMakeFiles/test_logger.dir/tests/test_logger.cpp.o.d -o CMakeFiles/test_logger.dir/tests/test_logger.cpp.o -c /Users/hly/Desktop/tech-template/tests/test_logger.cpp
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_logger.dir/tests/test_logger.cpp.o -MF CMakeFiles/test_logger.dir/tests/test_logger.cpp.o.d -o CMakeFiles/test_logger.dir/tests/test_logger.cpp.o -c /Users/hly/Desktop/tech-template/tests/test_logger.cpp
 
 CMakeFiles/test_logger.dir/tests/test_logger.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test_logger.dir/tests/test_logger.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hly/Desktop/tech-template/tests/test_logger.cpp > CMakeFiles/test_logger.dir/tests/test_logger.cpp.i
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hly/Desktop/tech-template/tests/test_logger.cpp > CMakeFiles/test_logger.dir/tests/test_logger.cpp.i
 
 CMakeFiles/test_logger.dir/tests/test_logger.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_logger.dir/tests/test_logger.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hly/Desktop/tech-template/tests/test_logger.cpp -o CMakeFiles/test_logger.dir/tests/test_logger.cpp.s
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hly/Desktop/tech-template/tests/test_logger.cpp -o CMakeFiles/test_logger.dir/tests/test_logger.cpp.s
 
 # Object files for target test_logger
 test_logger_OBJECTS = \

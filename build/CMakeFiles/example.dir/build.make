@@ -76,15 +76,15 @@ CMakeFiles/example.dir/main.cpp.o: CMakeFiles/example.dir/flags.make
 CMakeFiles/example.dir/main.cpp.o: /Users/hly/Desktop/tech-template/main.cpp
 CMakeFiles/example.dir/main.cpp.o: CMakeFiles/example.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hly/Desktop/tech-template/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/example.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/example.dir/main.cpp.o -MF CMakeFiles/example.dir/main.cpp.o.d -o CMakeFiles/example.dir/main.cpp.o -c /Users/hly/Desktop/tech-template/main.cpp
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/example.dir/main.cpp.o -MF CMakeFiles/example.dir/main.cpp.o.d -o CMakeFiles/example.dir/main.cpp.o -c /Users/hly/Desktop/tech-template/main.cpp
 
 CMakeFiles/example.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/example.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hly/Desktop/tech-template/main.cpp > CMakeFiles/example.dir/main.cpp.i
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hly/Desktop/tech-template/main.cpp > CMakeFiles/example.dir/main.cpp.i
 
 CMakeFiles/example.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/example.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hly/Desktop/tech-template/main.cpp -o CMakeFiles/example.dir/main.cpp.s
+	/opt/homebrew/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hly/Desktop/tech-template/main.cpp -o CMakeFiles/example.dir/main.cpp.s
 
 # Object files for target example
 example_OBJECTS = \
