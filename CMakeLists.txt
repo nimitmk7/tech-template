@@ -1,13 +1,23 @@
 cmake_minimum_required(VERSION 3.10)
 project(example)
 
+cmake_policy(SET CMP0111 NEW)
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 17)
 
-set(GTEST_INCLUDE_DIR "/usr/include")
-set(GTEST_LIBRARY "/usr/lib/libgtest.a")
-set(GTEST_MAIN_LIBRARY "/usr/lib/libgtest_main.a")
-find_package(GTest REQUIRED)
+# set(GTEST_INCLUDE_DIR "/usr/include")
+# set(GTEST_LIBRARY "/usr/lib/libgtest.a")
+# set(GTEST_MAIN_LIBRARY "/usr/lib/libgtest_main.a")
+# find_package(GTest REQUIRED)
+
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+  DOWNLOAD_EXTRACT_TIMESTAMP TRUE  # Add this to fix the warning
+)
+FetchContent_MakeAvailable(googletest)
 
 # Add subdirectories for each component.
 add_subdirectory(components/calculator)
@@ -31,17 +41,29 @@ file(GLOB INTEGRATION_TEST_SOURCES "${CMAKE_SOURCE_DIR}/tests/integration/*.cpp"
 foreach(TEST_SOURCE ${INTEGRATION_TEST_SOURCES})
   get_filename_component(TEST_NAME ${TEST_SOURCE} NAME_WE)
   add_executable(${TEST_NAME} ${TEST_SOURCE})
-  target_link_libraries(${TEST_NAME} calculator logger notifier GTest::Main GTest::GTest)
+  target_link_libraries(${TEST_NAME}
+    PRIVATE
+      calculator
+      logger
+      notifier
+      GTest::gtest
+      GTest::gtest_main
+  )
   add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
 endforeach()
-
-
 
 # Add end-to-end tests (assuming they reside in tests/e2e)
 file(GLOB E2E_TEST_SOURCES "${CMAKE_SOURCE_DIR}/tests/e2e/*.cpp")
 foreach(TEST_SOURCE ${E2E_TEST_SOURCES})
   get_filename_component(TEST_NAME ${TEST_SOURCE} NAME_WE)
   add_executable(${TEST_NAME} ${TEST_SOURCE})
-  target_link_libraries(${TEST_NAME} calculator logger notifier GTest::Main GTest::GTest)
+  target_link_libraries(${TEST_NAME}
+    PRIVATE
+      calculator
+      logger
+      notifier
+      GTest::gtest
+      GTest::gtest_main
+  )
   add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
 endforeach()
