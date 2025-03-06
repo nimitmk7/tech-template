@@ -11,19 +11,24 @@ jobs:
   clang-tidy:
     name: Clang-Tidy Check
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v3
-    
+      with:
+        submodules: true
+
     - name: Install dependencies
       run: |
         sudo apt-get update
         sudo apt-get install -y clang-tidy cmake build-essential
         
+    - name: Bootstrap vcpkg
+      run: |
+        ./vcpkg/bootstrap-vcpkg.sh
+        
     - name: Create Compilation Database
       run: |
-        cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+        cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake
         
     - name: Run Clang-Tidy
       run: |
-        find . -name '*.cpp' -o -name '*.hpp' | xargs clang-tidy -p build
+        find . -name '*.cpp' -o -name '*.hpp' -not -path "./vcpkg/*" | xargs clang-tidy -p build
