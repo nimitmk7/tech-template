@@ -8,10 +8,10 @@ This document defines the structure, naming conventions, and guidelines for comp
 
 Each component should be organized within its own subdirectory under the `components` directory.
 
-- **Namespace:**  
+- **Namespace:**
   All entities (classes, functions, constants) within a component must be defined in a namespace named after the component. The namespace should use lowercase letters with words separated by underscores (e.g., `calculator`).
 
-- **Directory Structure:**  
+- **Directory Structure:**
   The component’s header and implementation files should reside in a subdirectory whose name matches the component. For example, for a component named **Calculator**, the structure should be:
 ```
 components/
@@ -21,50 +21,50 @@ components/
         └── tests/         # unit tests for the component
 ```
 
-- **Header Files:**  
-Header files should be named after the classes or functionalities they declare and placed within the component's directory (e.g., `components/calculator/Calculator.h`).
+- **Header Files:**
+Header files should be named after the classes or functionalities they declare and placed within the component's directory (e.g., `srccalculator/Calculator.h`).
 
-- **Implementation Files:**  
-Implementation files (e.g., `.cpp` files) should correspond to their header files and be placed within the same component directory (e.g., `components/calculator/Calculator.cpp`).
+- **Implementation Files:**
+Implementation files (e.g., `.cpp` files) should correspond to their header files and be placed within the same component directory (e.g., `srccalculator/Calculator.cpp`).
 
 ---
 
 ## 2. Naming Conventions
 
-- **Namespaces:** Use lowercase letters with words separated by underscores.  
+- **Namespaces:** Use lowercase letters with words separated by underscores.
 *Example:* `calculator`, `logger`, `notifier`
 
-- **Classes/Structs:** Use PascalCase.  
+- **Classes/Structs:** Use PascalCase.
 *Example:* `Calculator`, `Logger`, `Notifier`
 
-- **Functions/Variables:** Use camelCase.  
+- **Functions/Variables:** Use camelCase.
 *Example:* `add`, `subtract`, `logOperation`
 
 ---
 
 ## 3. Documentation Guidelines
 
-- **Component-Level Documentation:**  
+- **Component-Level Documentation:**
 Each component should have a leading comment block (typically in its main header file) that describes its purpose and main functionalities.
 
-- **Public Interface Documentation:**  
+- **Public Interface Documentation:**
 Public classes, methods, and functions must be documented in the header files. Documentation should include:
 - A brief description of what the method or class does.
 - Descriptions of parameters.
 - The return value.
 - Any exceptions thrown.
 
-- **Design Intent:**  
+- **Design Intent:**
 Document design decisions that hide internal complexity and promote modularity. This allows users of the component to interact with it through a simple, clear interface without needing to know internal details.
 
 ---
 
 ## 4. Consistency and Isolation
 
-- **Consistency:**  
+- **Consistency:**
 Ensure that naming, file structure, and documentation are consistent within and across components to improve readability and maintainability.
 
-- **Isolation:**  
+- **Isolation:**
 Design components to minimize dependencies on other components. Use forward declarations and abstract interfaces where possible to reduce coupling.
 
 ---
@@ -72,7 +72,7 @@ Design components to minimize dependencies on other components. Use forward decl
 ## 5. Testing
 
 - Each component must have corresponding unit tests.
-- Create a `tests` subdirectory within each component’s directory (e.g., `components/calculator/tests/`).
+- Create a `tests` subdirectory within each component’s directory (e.g., `srccalculator/tests/`).
 - Test files should follow the same naming conventions and aim for comprehensive coverage of the component's functionality.
 
 ---
@@ -81,7 +81,7 @@ Design components to minimize dependencies on other components. Use forward decl
 
 Below is an example of how the Calculator component might be structured and documented.
 
-### Example Header File: `components/calculator/Calculator.h`
+### Example Header File: `srccalculator/Calculator.h`
 
 ```cpp
 #ifndef CALCULATOR_H
@@ -136,7 +136,7 @@ public:
 #endif // CALCULATOR_H
 ```
 
-### Example Implementation File: `components/calculator/Calculator.cpp`
+### Example Implementation File: `srccalculator/Calculator.cpp`
 
 ```cpp
 #include "Calculator.h"
@@ -166,7 +166,7 @@ int Calculator::divide(int a, int b) {
 }
 
 
-``` 
+```
 
 ## Components in This Repository
 
@@ -190,4 +190,3 @@ int Calculator::divide(int a, int b) {
 - **Interface:**
   - `void checkAndNotify(int result)`
   - `bool wasNotified() const`
-

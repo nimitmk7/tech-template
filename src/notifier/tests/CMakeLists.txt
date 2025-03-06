@@ -13,4 +13,7 @@ target_link_libraries(unit_test_notifier
     GTest::gtest
     GTest::gtest_main
 )
-add_test(NAME unit_test_notifier COMMAND unit_test_notifier)
+# add_test(NAME unit_test_notifier COMMAND unit_test_notifier)
+
+include(GoogleTest)
+gtest_discover_tests(unit_test_notifier)

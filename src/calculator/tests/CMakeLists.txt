@@ -10,4 +10,12 @@ target_link_libraries(unit_test_calculator
     GTest::gtest
     GTest::gtest_main
 )
-add_test(NAME unit_test_calculator COMMAND unit_test_calculator)
+
+if(ENABLE_COVERAGE)
+  target_compile_options(unit_test_calculator PRIVATE -fprofile-instr-generate -fcoverage-mapping)
+  target_link_options(unit_test_calculator PRIVATE -fprofile-instr-generate -fcoverage-mapping)
+endif()
+
+# add_test(NAME unit_test_calculator COMMAND unit_test_calculator)
+include(GoogleTest)
+gtest_discover_tests(unit_test_calculator)

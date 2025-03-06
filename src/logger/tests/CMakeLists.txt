@@ -13,4 +13,7 @@ target_link_libraries(unit_test_logger
     GTest::gtest
     GTest::gtest_main
 )
-add_test(NAME unit_test_logger COMMAND unit_test_logger)
+# add_test(NAME unit_test_logger COMMAND unit_test_logger)
+
+include(GoogleTest)
+gtest_discover_tests(unit_test_logger)

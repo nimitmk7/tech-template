@@ -7,31 +7,53 @@ executors:
     working_directory: ~/tech-template
 
 jobs:
-  test:
+  build-and-test:
     executor: cpp-executor
     steps:
-      - checkout  # Pull the latest code
+      - checkout
 
-      # Optional: Authenticate Docker Hub (if needed)
+      # Restore vcpkg cache
+      - restore_cache:
+          keys:
+            - vcpkg-modules-v1-{{ checksum "vcpkg.json" }}
+            - vcpkg-modules-v1-
+
       - run:
-          name: Docker Login
+          name: Install System Dependencies
           command: |
-            if [ -n "$DOCKERHUB_PASSWORD" ]; then
-              echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin || echo "Docker login failed, continuing..."
+            sudo apt-get update
+            sudo apt-get install -y cmake clang clang-tidy lcov ninja-build pkg-config llvm
+      - run:
+          name: Setup vcpkg
+          command: |
+            if [ ! -d "vcpkg" ]; then
+              git submodule add https://github.com/microsoft/vcpkg.git
             fi
+            git submodule update --init --recursive
 
       - run:
-          name: Install Dependencies
+          name: Bootstrap vcpkg
           command: |
-            sudo apt update
-            sudo apt install -y cmake g++ ninja-build googletest
+            ./vcpkg/bootstrap-vcpkg.sh
 
+      - run:
+          name: Install vcpkg Dependencies
+          command: |
+            ./vcpkg/vcpkg install --triplet=x64-linux
+      - run:
+          name: Configure Project
+          command: |
+            cmake -B build -S . \
+              -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake \
+              -DCMAKE_CXX_COMPILER=clang++ \
+              -DCMAKE_BUILD_TYPE=Debug \
+              -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+              -G Ninja
       - run:
           name: Build Project
           command: |
-            mkdir -p build/test_results  # Ensure test results directory exists
+            mkdir -p build/test_results
             cd build
-            cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Debug
             ninja
 
       - run:
@@ -41,16 +63,31 @@ jobs:
             ctest --output-on-failure --test-output-size-passed | tee test_results/ctest_output.log
             ctest --test-output-size-passed --gtest_output=xml:test_results/gtest_results.xml || echo "No GTest XML output found."
 
-      # Ensure test results are properly stored
-      - store_test_results:
-          path: build/test_results  # Store structured test results in CircleCI
+      - run:
+          name: Generate Coverage Report
+          command: |
+            cd build
+            llvm-cov gcov $(find . -name "*.gcno")
+            bash <(curl -s https://codecov.io/bash)
 
-      # Store logs for debugging
+      # Save vcpkg cache
+      - save_cache:
+          key: vcpkg-modules-v1-{{ checksum "vcpkg.json" }}
+          paths:
+            - ~/.cache/vcpkg/archives
+            - ./vcpkg/installed
+
+      # Store test results
+      - store_test_results:
+          path: build/test_results
+
+      # Store artifacts
       - store_artifacts:
-          path: build/test_results  # Store test logs and XML reports
+          path: build/test_results
+          destination: test-results
 
 workflows:
   version: 2
-  test:
+  build-test-analyze:
     jobs:
-      - test
+      - build-and-test
