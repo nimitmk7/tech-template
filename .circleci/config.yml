@@ -78,9 +78,12 @@ jobs:
           name: Generate Coverage Report
           command: |
             cd build
-            echo $(ls) 
             llvm-cov gcov $(find . -name "*.gcno")
-            bash <(curl -s https://codecov.io/bash)
+      
+      - run:
+          name: Upload Coverage Report
+          command: |
+            bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN}
 
       # Save vcpkg cache
       - save_cache:
