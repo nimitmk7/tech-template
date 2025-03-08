@@ -75,7 +75,7 @@ jobs:
           name: Generate Coverage Report
           command: |
             cd build
-            echo $(ls CMakeFiles) 
+            echo $(ls CMakeFiles/test_calculator.dir/tests) 
             llvm-cov gcov $(find . -name "*.gcno")
             bash <(curl -s https://codecov.io/bash)
 
