@@ -58,6 +58,7 @@ jobs:
               -DCMAKE_C_FLAGS="--coverage" \
               -DCMAKE_CXX_FLAGS="--coverage" \
               -DCMAKE_EXE_LINKER_FLAGS="--coverage" 
+              -DCMAKE_BUILD_TYPE=Debug \
               -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
               -G Ninja
       - run:
