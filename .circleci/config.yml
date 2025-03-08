@@ -75,7 +75,7 @@ jobs:
           name: Generate Coverage Report
           command: |
             cd build
-            echo $(ls build) 
+            echo $(ls) 
             llvm-cov gcov $(find . -name "*.gcno")
             bash <(curl -s https://codecov.io/bash)
 
