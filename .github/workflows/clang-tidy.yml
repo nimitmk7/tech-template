@@ -36,4 +36,4 @@ jobs:
         
     - name: Run Clang-Tidy
       run: |
-        find . -name '*.cpp' -o -name '*.hpp' -not -path "./vcpkg/*" | xargs clang-tidy -p build
+        find . -not -path "./vcpkg/*" \( -name '*.cpp' -o -name '*.hpp' \) | xargs clang-tidy -p build
