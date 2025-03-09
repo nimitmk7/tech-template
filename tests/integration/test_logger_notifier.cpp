@@ -1,5 +1,3 @@
-#include <string>
-
 #include "Logger.h"
 #include "Notifier.h"
 #include "gtest/gtest.h"

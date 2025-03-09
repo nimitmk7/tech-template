@@ -1,6 +1,3 @@
-#include <string>
-#include <vector>
-
 #include "Calculator.h"
 #include "Logger.h"
 #include "Notifier.h"

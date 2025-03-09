@@ -21,13 +21,13 @@ endif()
 # Add code coverage flags
 option(ENABLE_COVERAGE "Enable coverage reporting for tests" OFF)
 
-# Function to apply coverage only to test targets
+#Function to apply coverage only to test targets
 function(enable_coverage target)
   if(ENABLE_COVERAGE)
     if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-      message(STATUS "Enabling coverage for target: ${target}")
-      target_compile_options(${target} PRIVATE -fprofile-instr-generate -fcoverage-mapping)
-      target_link_options(${target} PRIVATE -fprofile-instr-generate -fcoverage-mapping)
+     message(STATUS "Enabling gcov-compatible coverage for target: ${target}")
+      target_compile_options(${target} PRIVATE --coverage)
+      target_link_options(${target} PRIVATE --coverage)
     endif()
   endif()
 endfunction()
