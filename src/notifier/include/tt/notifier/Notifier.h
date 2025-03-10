@@ -1,7 +1,6 @@
-#ifndef NOTIFIER_H
-#define NOTIFIER_H
+#pragma once
 
-namespace notifier {
+namespace tt::notifier {
 
 /**
  * @brief Monitors results and triggers a notification when a threshold is
@@ -33,6 +32,4 @@ class Notifier {
   bool notified;
 };
 
-}  // namespace notifier
-
-#endif  // NOTIFIER_H
+}  // namespace tt::notifier

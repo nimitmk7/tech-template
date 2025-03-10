@@ -1,6 +1,6 @@
-#include "Calculator.h"
+#include <tt/calculator/Calculator.h>
 
-namespace calculator {
+namespace tt::calculator {
 
 int Calculator::add(int a, int b) { return a + b; }
 
@@ -15,4 +15,4 @@ int Calculator::divide(int a, int b) {
   return a / b;
 }
 
-}  // namespace calculator
+}  // namespace tt::calculator

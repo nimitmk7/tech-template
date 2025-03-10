@@ -7,6 +7,7 @@
 *.swp
 *~
 .DS_Store
+.cache
 
 
 # Compiled Object files

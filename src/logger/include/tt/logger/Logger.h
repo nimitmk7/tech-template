@@ -1,10 +1,9 @@
-#ifndef LOGGER_H
-#define LOGGER_H
+#pragma once
 
 #include <string>
 #include <vector>
 
-namespace logger {
+namespace tt::logger {
 
 /**
  * @brief Records and retrieves log messages.
@@ -27,6 +26,4 @@ class Logger {
   std::vector<std::string> logs_;
 };
 
-}  // namespace logger
-
-#endif  // LOGGER_H
+}  // namespace tt::logger

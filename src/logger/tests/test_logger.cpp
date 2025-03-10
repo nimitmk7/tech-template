@@ -1,8 +1,8 @@
-#include "Logger.h"
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
+#include <tt/logger/Logger.h>
 
 TEST(LoggerTest, LogOperations) {
-  logger::Logger logger;
+  tt::logger::Logger logger;
   logger.log("add");
   logger.log("subtract");
 

@@ -1,6 +1,6 @@
-#include "Notifier.h"
+#include <tt/notifier/Notifier.h>
 
-namespace notifier {
+namespace tt::notifier {
 
 Notifier::Notifier(int thresh) : threshold(thresh), notified(false) {}
 
@@ -12,4 +12,4 @@ void Notifier::checkAndNotify(int result) {
 
 bool Notifier::wasNotified() const { return notified; }
 
-}  // namespace notifier
+}  // namespace tt::notifier

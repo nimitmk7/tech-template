@@ -1,6 +1,6 @@
-#include "Calculator.h"
-#include "Logger.h"
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
+#include <tt/calculator/Calculator.h>
+#include <tt/logger/Logger.h>
 
 class MockNotifier {
  public:
@@ -16,8 +16,8 @@ class MockNotifier {
 
 TEST(IntegrationTest, CalculatorLogger_MockNotifier) {
   // Create instances of Calculator and Logger.
-  calculator::Calculator calc;
-  logger::Logger log;
+  tt::calculator::Calculator calc;
+  tt::logger::Logger log;
   MockNotifier mockNotifier;
 
   // Perform a calculation that yields a result greater than 10.

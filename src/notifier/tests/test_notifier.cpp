@@ -1,8 +1,8 @@
-#include "Notifier.h"
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
+#include <tt/notifier/Notifier.h>
 
 TEST(NotifierTest, CheckNotifications) {
-  notifier::Notifier notifier(10);
+  tt::notifier::Notifier notifier(10);
 
   notifier.checkAndNotify(5);
   EXPECT_FALSE(notifier.wasNotified());
