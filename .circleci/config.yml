@@ -90,15 +90,6 @@ jobs:
             - ~/.cache/vcpkg/archives
             - ./vcpkg/installed
 
-      # Store test results
-      - store_test_results:
-          path: build/test_results
-
-      # Store artifacts
-      - store_artifacts:
-          path: build/test_results
-          destination: test-results
-
 workflows:
   version: 2
   build-test-analyze:
