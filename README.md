@@ -51,7 +51,7 @@ This repository includes a CircleCI pipeline to ensure high code quality and mai
 - **Dependency Management:** Uses `vcpkg` for package management.
 - **Docker Integration:** Secure login and image management via DockerHub.
 - **Build & Compilation:** Uses `clang++` and `Ninja` for efficient builds.
-- **Unit Testing: Runs tests via `ctest` using `Google Test`.
+- **Unit Testing**: Runs tests via `ctest` using `Google Test`.
 - **Static Analysis:** Utilizes `clang-tidy` for code quality checks.
 - **Code Coverage:** Uses `llvm-cov` for coverage reports and uploads them to Codecov.
 
@@ -92,12 +92,14 @@ Maintaining code consistency is crucial to this project. We enforce strict forma
 find ./src -iname '*.h' -o -iname '*.cpp' -exec clang-format -n -Werror {} +
 ```
 
-## Static Code Analysis
-To detect bugs, memory leaks, and other issues, use Clang Static Analyzer:
-```sh
-scan-build cmake --build .
-```
-
+## Static Code Analysis with Clang Static Analyzer
+ 
+ The Clang Static Analyzer is a powerful tool for detecting bugs, memory leaks, and other potential issues in C and C++ code. It analyzes the code at compile time, without needing to execute it.
+ 
+ ### Running the Clang Static Analyzer
+ 
+ To run the Clang Static Analyzer on this project, please follow these steps. Note that on Windows, these steps should be performed in Git Bash to ensure compatibility with Unix-like commands and behaviors used by `scan-build`.
+ 
 ## Components
 - **Calculator** - Performs basic arithmetic operations.
 - **Logger** - Records operations performed by the calculator.
