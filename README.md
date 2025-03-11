@@ -24,22 +24,32 @@ This project uses CMake as its build system, with Ninja as the preferred generat
 
 ### 1. Clone the Repository
 ```sh
- git clone --recurse-submodules <repository_url>
- cd <repository>
+Includes vcpkg as a submodule: git clone --recurse-submodules https://github.com/nimitmk7/tech-template.git
+Cloning the repository without submodules: 
+git clone https://github.com/nimitmk7/tech-template.git
+git submodule update --init --recursive
+cd <repository>
 ```
 
-### 2. Configure the Build
+### 2. Bootstrap vcpkg
+```sh
+cd repository/vcpkg
+Windows: .\bootstrap-vcpkg.bat
+Linux/macOS: ./bootstrap-vcpkg.sh
+```
+
+### 3. Configure the Build
 ```sh
 mkdir build && cd build
 cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake ..
 ```
 
-### 3. Compile the Project
+### 4. Compile the Project
 ```sh
 cmake --build .
 ```
 
-### 4. Run Tests
+### 5. Run Tests
 ```sh
 ctest --output-on-failure
 ```
@@ -94,29 +104,11 @@ find ./src -iname '*.h' -o -iname '*.cpp' -exec clang-format -n -Werror {} +
 
 ## Static Code Analysis with Clang Static Analyzer
  
- The Clang Static Analyzer is a powerful tool for detecting bugs, memory leaks, and other potential issues in C and C++ code. It analyzes the code at compile time, without needing to execute it.
- 
- ### Running the Clang Static Analyzer
- 
- To run the Clang Static Analyzer on this project, please follow these steps. Note that on Windows, these steps should be performed in Git Bash to ensure compatibility with Unix-like commands and behaviors used by `scan-build`.
- 
-## Components
-- **Calculator** - Performs basic arithmetic operations.
-- **Logger** - Records operations performed by the calculator.
-- **Notifier** - Sends an alert when the result exceeds a given threshold.
+The Clang Static Analyzer is a powerful tool for detecting bugs, memory leaks, and other potential issues in C and C++ code. It analyzes the code at compile time, without needing to execute it.
 
-### Tests
-#### Unit Tests
-- Calculator - Test addition, subtraction, and multiplication.
-- Logger - Test that operations are logged correctly.
-- Notifier - Test that notifications are sent when thresholds are exceeded.
+### Running the Clang Static Analyzer
 
-#### Integration Tests
-- Calculator ↔ Logger (Mock Notifier)
-- Logger ↔ Notifier (Mock Calculator)
-
-#### End-to-End Test
-- Perform a calculation, log it, and send a notification when the threshold is exceeded.
+To run the Clang Static Analyzer on this project, please follow these steps. Note that on Windows, these steps should be performed in Git Bash to ensure compatibility with Unix-like commands and behaviors used by `scan-build`.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
