@@ -1,0 +1,19 @@
+---
+BasedOnStyle: Google
+Language: Cpp
+IndentWidth: 2
+ColumnLimit: 80
+UseTab: Never
+BreakBeforeBraces: Attach
+AllowShortFunctionsOnASingleLine: All
+IndentCaseLabels: true
+AccessModifierOffset: -1
+NamespaceIndentation: None
+FixNamespaceComments: true
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignTrailingComments: true
+SpacesBeforeTrailingComments: 2
+MaxEmptyLinesToKeep: 1
+KeepEmptyLinesAtTheStartOfBlocks: false
+SortIncludes: true

@@ -1,6 +1,15 @@
 # Prerequisites
 *.d
 
+# IDE and editor files
+.vscode
+.idea
+*.swp
+*~
+.DS_Store
+.cache
+
+
 # Compiled Object files
 *.slo
 *.lo
@@ -30,3 +39,17 @@
 *.exe
 *.out
 *.app
+/build
+
+# vcpkg specific
+vcpkg_installed/
+.vcpkg/
+vcpkg-manifest-install.log
+
+# If vcpkg is a submodule, don't ignore it
+# But do ignore its build artifacts
+!vcpkg/
+vcpkg/downloads/
+vcpkg/buildtrees/
+vcpkg/packages/
+vcpkg/installed/
