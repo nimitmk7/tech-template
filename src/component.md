@@ -6,26 +6,29 @@ This document defines the structure, naming conventions, and guidelines for comp
 
 ## 1. Component Structure
 
-Each component should be organized within its own subdirectory under the `components` directory.
+Each component should be organized within its own subdirectory under the `src` directory.
 
 - **Namespace:**
-  All entities (classes, functions, constants) within a component must be defined in a namespace named after the component. The namespace should use lowercase letters with words separated by underscores (e.g., `calculator`).
+  All entities (classes, functions, constants) within a component must be defined in a namespace named after the `tt::component`. The namespace should use lowercase letters with words separated by underscores (e.g., `tt::calculator`).
 
 - **Directory Structure:**
   The component’s header and implementation files should reside in a subdirectory whose name matches the component. For example, for a component named **Calculator**, the structure should be:
 ```
-components/
+src/
     └── calculator/
-        ├── Calculator.h
         ├── Calculator.cpp
-        └── tests/         # unit tests for the component
+        ├── include/tt/
+                  └──calculator/
+                              └──Calculator.h
+        └── tests/  # unit tests for the component
+              
 ```
 
 - **Header Files:**
-Header files should be named after the classes or functionalities they declare and placed within the component's directory (e.g., `srccalculator/Calculator.h`).
+Header files should be named after the classes or functionalities they declare and placed within the component's directory (e.g., `src/calculator/include/tt/calculator/Calculator.h`).
 
 - **Implementation Files:**
-Implementation files (e.g., `.cpp` files) should correspond to their header files and be placed within the same component directory (e.g., `srccalculator/Calculator.cpp`).
+Implementation files (e.g., `.cpp` files) should correspond to their header files and be placed within the same component directory (e.g., `src/calculator/Calculator.cpp`).
 
 ---
 
@@ -49,10 +52,10 @@ Each component should have a leading comment block (typically in its main header
 
 - **Public Interface Documentation:**
 Public classes, methods, and functions must be documented in the header files. Documentation should include:
-- A brief description of what the method or class does.
-- Descriptions of parameters.
-- The return value.
-- Any exceptions thrown.
+  - A brief description of what the method or class does.
+  - Descriptions of parameters.
+  - The return value.
+  - Any exceptions thrown.
 
 - **Design Intent:**
 Document design decisions that hide internal complexity and promote modularity. This allows users of the component to interact with it through a simple, clear interface without needing to know internal details.
@@ -72,8 +75,9 @@ Design components to minimize dependencies on other components. Use forward decl
 ## 5. Testing
 
 - Each component must have corresponding unit tests.
-- Create a `tests` subdirectory within each component’s directory (e.g., `srccalculator/tests/`).
+- Create a `tests` subdirectory within each component’s directory (e.g., `src/calculator/tests/`).
 - Test files should follow the same naming conventions and aim for comprehensive coverage of the component's functionality.
+- Integration and End-to-End Tests must be in the root test directory (e.g., `~/tests/e2e/`).
 
 ---
 
@@ -81,35 +85,33 @@ Design components to minimize dependencies on other components. Use forward decl
 
 Below is an example of how the Calculator component might be structured and documented.
 
-### Example Header File: `srccalculator/Calculator.h`
+### Example Header File: `src/calculator/include/tt/calculator/Calculator.h`
 
 ```cpp
-#ifndef CALCULATOR_H
-#define CALCULATOR_H
+#pragma once
 
-namespace calculator {
+#include <stdexcept>
+
+namespace tt::calculator {
 
 /**
-* @brief The Calculator class provides basic arithmetic operations.
-*
-* This class implements addition, subtraction, multiplication, and division,
-* while handling errors such as division by zero.
-*/
+ * @brief Provides basic arithmetic operations.
+ */
 class Calculator {
-public:
+ public:
   /**
    * @brief Adds two integers.
    * @param a First operand.
    * @param b Second operand.
-   * @return The sum of a and b.
+   * @return Sum of a and b.
    */
   int add(int a, int b);
 
   /**
-   * @brief Subtracts one integer from another.
+   * @brief Subtracts the second integer from the first.
    * @param a First operand.
    * @param b Second operand.
-   * @return The difference (a - b).
+   * @return Difference (a - b).
    */
   int subtract(int a, int b);
 
@@ -117,7 +119,7 @@ public:
    * @brief Multiplies two integers.
    * @param a First operand.
    * @param b Second operand.
-   * @return The product of a and b.
+   * @return Product of a and b.
    */
   int multiply(int a, int b);
 
@@ -125,50 +127,41 @@ public:
    * @brief Divides one integer by another.
    * @param a Numerator.
    * @param b Denominator (must not be zero).
-   * @return The quotient of a divided by b.
+   * @return Quotient of a divided by b.
    * @throws std::invalid_argument if b is zero.
    */
   int divide(int a, int b);
 };
 
-} // namespace calculator
+}  // namespace tt::calculator
 
-#endif // CALCULATOR_H
 ```
 
-### Example Implementation File: `srccalculator/Calculator.cpp`
+### Example Implementation File: `src/calculator/Calculator.cpp`
 
 ```cpp
-#include "Calculator.h"
-#include <stdexcept>
+#include <tt/calculator/Calculator.h>
 
-namespace calculator {
+namespace tt::calculator {
 
-int Calculator::add(int a, int b) {
-    return a + b;
-}
+int Calculator::add(int a, int b) { return a + b; }
 
-int Calculator::subtract(int a, int b) {
-    return a - b;
-}
+int Calculator::subtract(int a, int b) { return a - b; }
 
-int Calculator::multiply(int a, int b) {
-    return a * b;
-}
+int Calculator::multiply(int a, int b) { return a * b; }
 
 int Calculator::divide(int a, int b) {
-    if (b == 0) {
-        throw std::invalid_argument("Division by zero");
-    }
-    return a / b;
+  if (b == 0) {
+    throw std::invalid_argument("Division by zero");
+  }
+  return a / b;
 }
 
-}
-
+}  // namespace tt::calculator
 
 ```
 
-## Components in This Repository
+## Components in this Repository
 
 ### Calculator
 - **Purpose:** Performs basic arithmetic operations.
