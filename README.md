@@ -21,6 +21,15 @@ Logger  Notifier (Mock Calculator)
 ### End-to-End Test  
 Perform a calculation, log it, and send a notification when the threshold is exceeded.  
 
+#### Run the Analyzer
+
+In your `build` directory, execute the Clang Static Analyzer using `scan-build`:
+
+```sh
+scan-build cmake --build .
+```
+
+Please ensure to format your code using the provided script before submitting a pull request. This helps to maintain a consistent codebase and simplifies the review process.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
