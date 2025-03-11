@@ -91,10 +91,7 @@ This repository includes a CircleCI pipeline to ensure high code quality and mai
 - **Code Coverage:** Uses `llvm-cov gcov` for coverage reports and uploads them to `code-cov`.
 
 
-## Running Static Analysis with Clang-Tidy
-```sh
-clang-tidy ./src/*.cpp -- -I./include
-```
+
 ## Code Formatting
 Maintaining code consistency is crucial to this project. We enforce strict formatting guidelines using `clang-format`.
 
@@ -113,14 +110,10 @@ Maintaining code consistency is crucial to this project. We enforce strict forma
 find ./src -iname '*.h' -o -iname '*.cpp' -exec clang-format -n -Werror {} +
 ```
 
-## Static Code Analysis with Clang Static Analyzer
- 
-The Clang Static Analyzer is a powerful tool for detecting bugs, memory leaks, and other potential issues in C and C++ code. It analyzes the code at compile time, without needing to execute it.
-
-### Running the Clang Static Analyzer
-
-To run the Clang Static Analyzer on this project, please follow these steps. Note that on Windows, these steps should be performed in Git Bash to ensure compatibility with Unix-like commands and behaviors used by `scan-build`.
-
+## Running Static Analysis with Clang-Tidy
+```sh
+clang-tidy ./src/*.cpp -- -I./include
+```
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
