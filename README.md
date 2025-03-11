@@ -99,24 +99,6 @@ find ./src -iname '*.h' -o -iname '*.cpp' -exec clang-format -n -Werror {} +
  ### Running the Clang Static Analyzer
  
  To run the Clang Static Analyzer on this project, please follow these steps. Note that on Windows, these steps should be performed in Git Bash to ensure compatibility with Unix-like commands and behaviors used by `scan-build`.
- 
-## Components
-- **Calculator** - Performs basic arithmetic operations.
-- **Logger** - Records operations performed by the calculator.
-- **Notifier** - Sends an alert when the result exceeds a given threshold.
-
-### Tests
-#### Unit Tests
-- Calculator - Test addition, subtraction, and multiplication.
-- Logger - Test that operations are logged correctly.
-- Notifier - Test that notifications are sent when thresholds are exceeded.
-
-#### Integration Tests
-- Calculator ↔ Logger (Mock Notifier)
-- Logger ↔ Notifier (Mock Calculator)
-
-#### End-to-End Test
-- Perform a calculation, log it, and send a notification when the threshold is exceeded.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
