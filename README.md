@@ -110,6 +110,7 @@ The Clang Static Analyzer is a powerful tool for detecting bugs, memory leaks, a
 
 To run the Clang Static Analyzer on this project, please follow these steps. Note that on Windows, these steps should be performed in Git Bash to ensure compatibility with Unix-like commands and behaviors used by `scan-build`.
 
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
