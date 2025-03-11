@@ -6,6 +6,16 @@ This template serves as a foundation for designing and developing projects in C+
 ## Prerequisites
 Before building the project, ensure you have CMake and Ninja installed on your system. These tools are essential for configuring, building, and managing dependencies.
 
+### Installing LLVM/Clang
+This project requires the Clang compiler and related LLVM tools for compilation, static analysis, and code coverage:
+
+- **Windows**: Download the LLVM installer from the [LLVM Releases page](https://github.com/llvm/llvm-project/releases). During installation, select the option to add LLVM to your system PATH.
+- **macOS**: Install via Homebrew with `brew install llvm`. You may need to update your PATH to use the Homebrew-installed version instead of the system version.
+- **Linux**: Install via package manager. For Ubuntu, you can use:
+  ```sh
+  sudo apt-get install clang clang-tidy llvm
+  ```
+  
 ### Installing CMake
 CMake is a cross-platform build system generator. To install CMake:
 
@@ -23,35 +33,51 @@ Ninja is a small build system focused on speed. To install Ninja:
 This project uses CMake as its build system, with Ninja as the preferred generator for efficiency and speed. Follow these steps to build the project:
 
 ### 1. Clone the Repository
+This repository includes `vcpkg` as a submodule:
 ```sh
-Includes vcpkg as a submodule: git clone --recurse-submodules https://github.com/nimitmk7/tech-template.git
-Cloning the repository without submodules: 
+git clone --recurse-submodules https://github.com/nimitmk7/tech-template.git
+```
+
+If you've already cloned the repository without submodules, run:
+```sh
 git clone https://github.com/nimitmk7/tech-template.git
 git submodule update --init --recursive
-cd <repository>
 ```
 
 ### 2. Bootstrap vcpkg
 ```sh
-cd repository/vcpkg
+cd tech-template/vcpkg
 Windows: .\bootstrap-vcpkg.bat
 Linux/macOS: ./bootstrap-vcpkg.sh
 ```
 
 ### 3. Configure the Build
 ```sh
-mkdir build && cd build
-cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake ..
+cmake -B build -S . \
+ -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake \
+-DCMAKE_CXX_COMPILER=clang++ \
+-DENABLE_COVERAGE=ON \
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+-DCMAKE_BUILD_TYPE=Debug \
+-G Ninja
 ```
 
 ### 4. Compile the Project
 ```sh
-cmake --build .
+cd build
+ninja
+```
+### 5. Running Tests Locally
+This project uses `gtest_discover_tests` from CMake's GoogleTest module for automatic test discovery.
+```sh
+cd build
+ctest --output-on-failure
 ```
 
-### 5. Run Tests
+### 6. Generating a Coverage Report Locally
 ```sh
-ctest --output-on-failure
+llvm-cov gcov $(find . -name "*.gcno")
+gcovr -r .. --exclude='.*include/.*\.h'  --html=coverage.html
 ```
 
 ## Continuous Integration (CI) Pipeline
@@ -59,31 +85,16 @@ This repository includes a CircleCI pipeline to ensure high code quality and mai
 
 ### CI Features
 - **Dependency Management:** Uses `vcpkg` for package management.
-- **Docker Integration:** Secure login and image management via DockerHub.
-- **Build & Compilation:** Uses `clang++` and `Ninja` for efficient builds.
+- **Build & Compilation:** Uses `clang` and `Ninja` for efficient builds.
 - **Unit Testing**: Runs tests via `ctest` using `Google Test`.
 - **Static Analysis:** Utilizes `clang-tidy` for code quality checks.
-- **Code Coverage:** Uses `llvm-cov` for coverage reports and uploads them to Codecov.
+- **Code Coverage:** Uses `llvm-cov gcov` for coverage reports and uploads them to `code-cov`.
 
-### Running CI Locally
-You can run parts of the CI pipeline locally before pushing changes to avoid breaking builds.
 
-#### Running Tests Locally
-```sh
-cd build
-ectest --output-on-failure
-```
-
-#### Running Static Analysis with Clang-Tidy
+## Running Static Analysis with Clang-Tidy
 ```sh
 clang-tidy ./src/*.cpp -- -I./include
 ```
-
-#### Generating a Coverage Report
-```sh
-llvm-cov gcov $(find . -name "*.gcno")
-```
-
 ## Code Formatting
 Maintaining code consistency is crucial to this project. We enforce strict formatting guidelines using `clang-format`.
 
