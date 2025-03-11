@@ -16,10 +16,3 @@ TEST(CalculatorTest, DivisionByZeroThrows) {
   tt::calculator::Calculator calc;
   EXPECT_THROW({ calc.divide(10, 0); }, std::invalid_argument);
 }
-
-TEST(CalculatorTest, DeliberateFailure) {
-  tt::calculator::Calculator calc;
-  
-  // This test will intentionally fail
-  EXPECT_EQ(calc.add(2, 3), 10) << "Deliberate failure: 2 + 3 should be 5, but we expect 10!";
-}
