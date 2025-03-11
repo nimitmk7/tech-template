@@ -1,16 +1,13 @@
-#include <string>
-#include <vector>
-
-#include "Calculator.h"
-#include "Logger.h"
-#include "Notifier.h"
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
+#include <tt/calculator/Calculator.h>
+#include <tt/logger/Logger.h>
+#include <tt/notifier/Notifier.h>
 
 TEST(EndToEndTest, FullWorkflow) {
   // Instantiate components with proper namespace usage.
-  calculator::Calculator calc;
-  logger::Logger logger;
-  notifier::Notifier notifier(10);  // Threshold is 10
+  tt::calculator::Calculator calc;
+  tt::logger::Logger logger;
+  tt::notifier::Notifier notifier(10);  // Threshold is 10
 
   // Perform calculations.
   int result1 = calc.add(5, 6);       // Expected: 11

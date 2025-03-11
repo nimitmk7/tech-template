@@ -1,9 +1,8 @@
-#ifndef CALCULATOR_H
-#define CALCULATOR_H
+#pragma once
 
 #include <stdexcept>
 
-namespace calculator {
+namespace tt::calculator {
 
 /**
  * @brief Provides basic arithmetic operations.
@@ -44,6 +43,4 @@ class Calculator {
   int divide(int a, int b);
 };
 
-}  // namespace calculator
-
-#endif  // CALCULATOR_H
+}  // namespace tt::calculator

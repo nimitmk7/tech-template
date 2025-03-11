@@ -1,11 +1,11 @@
+#include <gtest/gtest.h>
+#include <tt/calculator/Calculator.h>
+
 #include <stdexcept>
 #include <string>
 
-#include "Calculator.h"
-#include "gtest/gtest.h"
-
 TEST(CalculatorTest, BasicOperations) {
-  calculator::Calculator calc;
+  tt::calculator::Calculator calc;
   EXPECT_EQ(calc.add(2, 3), 5);
   EXPECT_EQ(calc.subtract(5, 3), 2);
   EXPECT_EQ(calc.multiply(4, 3), 12);
@@ -13,6 +13,6 @@ TEST(CalculatorTest, BasicOperations) {
 }
 
 TEST(CalculatorTest, DivisionByZeroThrows) {
-  calculator::Calculator calc;
+  tt::calculator::Calculator calc;
   EXPECT_THROW({ calc.divide(10, 0); }, std::invalid_argument);
 }

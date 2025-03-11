@@ -4,7 +4,7 @@ set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems
   CACHE STRING "Vcpkg toolchain file"
 )
 
-project(example)
+project(tt_modules CXX)
 
 cmake_policy(SET CMP0111 NEW)
 
@@ -21,13 +21,13 @@ endif()
 # Add code coverage flags
 option(ENABLE_COVERAGE "Enable coverage reporting for tests" OFF)
 
-# Function to apply coverage only to test targets
+#Function to apply coverage only to test targets
 function(enable_coverage target)
   if(ENABLE_COVERAGE)
     if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-      message(STATUS "Enabling coverage for target: ${target}")
-      target_compile_options(${target} PRIVATE -fprofile-instr-generate -fcoverage-mapping)
-      target_link_options(${target} PRIVATE -fprofile-instr-generate -fcoverage-mapping)
+     message(STATUS "Enabling gcov-compatible coverage for target: ${target}")
+      target_compile_options(${target} PRIVATE --coverage)
+      target_link_options(${target} PRIVATE --coverage)
     endif()
   endif()
 endfunction()
@@ -43,8 +43,8 @@ add_subdirectory(src/logger)
 add_subdirectory(src/notifier)
 
 # Main executable using main.cpp.
-add_executable(example main.cpp)
-target_link_libraries(example
+add_executable(tt_modules main.cpp)
+target_link_libraries(tt_modules
     PRIVATE
         calculator
         logger
