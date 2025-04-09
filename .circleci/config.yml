@@ -25,38 +25,26 @@ jobs:
               echo "$FORMAT_DIFF"
               exit 1
             fi
-
+            
   clang-tidy-check:
     executor: cpp-executor
     steps:
       - checkout
       - run:
-          name: Update submodules
-          command: git submodule update --init --recursive
-      
-      - run:
-          name: Install dependencies
+          name: Install Clang Tidy
           command: |
             sudo apt-get update
-            sudo apt-get install -y clang-tidy cmake build-essential ninja-build
-      
+            sudo apt-get install -y clang-tidy
       - run:
-          name: Bootstrap vcpkg
-          command: ./vcpkg/bootstrap-vcpkg.sh
-      
-      - run:
-          name: Install vcpkg dependencies
-          command: ./vcpkg/vcpkg install
-      
-      - run:
-          name: Create Compilation Database
+          name: Run Clang Tidy Check
           command: |
-            cmake -B build -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake
-      
-      - run:
-          name: Run Clang-Tidy
-          command: |
-            find . -not -path "./vcpkg/*" \( -name '*.cpp' -o -name '*.hpp' \) | xargs clang-tidy -p build
+            find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|c\|h\)' -print0 | \
+            xargs -0 -n1 -P$(nproc) clang-tidy-14 --checks='*' --header-filter='.*' -p build -j $(nproc) --quiet --use-color 2>&1 | tee clang_tidy_errors.log
+            if [ -s "clang_tidy_errors.log" ]; then
+              echo "Clang-Tidy found issues. See clang_tidy_errors.log for details."
+              cat clang_tidy_errors.log
+              exit 1
+            fi
 
   build-and-test:
     executor: cpp-executor
