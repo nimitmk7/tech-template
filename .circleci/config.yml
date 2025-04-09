@@ -33,8 +33,10 @@ jobs:
       - run:
           name: Install Clang-Tidy and Tools
           command: |
+            sudo rm -rf /var/lib/apt/lists/*
             sudo apt-get update
-            sudo apt-get install -y clang-tidy cmake build-essential ninja-build
+            DEBIAN_FRONTEND=noninteractive sudo apt-get install -y clang-tidy cmake build-essential ninja-build
+
       - run:
           name: Bootstrap vcpkg
           command: ./vcpkg/bootstrap-vcpkg.sh
