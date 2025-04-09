@@ -31,40 +31,32 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Clang-Tidy and Tools
-          command: |
-            sudo rm -rf /var/lib/apt/lists/*
-            sudo apt-get update
-            DEBIAN_FRONTEND=noninteractive sudo apt-get install -y clang-tidy cmake build-essential ninja-build
+          name: Update submodules
+          command: git submodule update --init --recursive
+      
       - run:
-          name: Setup vcpkg
+          name: Install dependencies
           command: |
-            if [ ! -d "vcpkg" ]; then
-              git submodule add https://github.com/microsoft/vcpkg.git
-            fi
-            git submodule update --init --recursive
+            sudo apt-get update
+            sudo apt-get install -y clang-tidy cmake build-essential ninja-build
+      
       - run:
           name: Bootstrap vcpkg
           command: ./vcpkg/bootstrap-vcpkg.sh
+      
       - run:
-          name: Install vcpkg Dependencies
+          name: Install vcpkg dependencies
           command: ./vcpkg/vcpkg install
+      
       - run:
           name: Create Compilation Database
           command: |
-            cmake -B build -G Ninja \
-              -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
-              -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake
+            cmake -B build -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake
+      
       - run:
           name: Run Clang-Tidy
           command: |
-            git fetch origin main
-            MODIFIED_FILES=$(git diff --name-only origin/main...HEAD | grep -E '\.(cpp|hpp|cc|cxx|h)$' | grep -v '^vcpkg/')
-            if [ -z "$MODIFIED_FILES" ]; then
-              echo "No modified C++ files to check with clang-tidy."
-            else
-              echo "$MODIFIED_FILES" | xargs -P$(nproc) clang-tidy -p build
-            fi
+            find . -not -path "./vcpkg/*" \( -name '*.cpp' -o -name '*.hpp' \) | xargs clang-tidy -p build
 
   build-and-test:
     executor: cpp-executor
