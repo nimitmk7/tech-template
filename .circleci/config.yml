@@ -3,27 +3,42 @@ version: 2.1
 executors:
   cpp-executor:
     machine:
-      image: ubuntu-2204:current  # Use a machine executor with Docker support
+      image: ubuntu-2204:current
     working_directory: ~/tech-template
 
 jobs:
+  clang-format-check:
+    executor: cpp-executor
+    steps:
+      - checkout
+      - run:
+          name: Install Clang Format
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y clang-format
+      - run:
+          name: Run Clang Format Check
+          command: |
+            FORMAT_DIFF=$(find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|c\|h\)' -exec clang-format-14 --dry-run --Werror {} + || true)
+            if [ -n "$FORMAT_DIFF" ]; then
+              echo "Clang-format check failed. Run 'clang-format-14 -i <file>' to fix formatting."
+              echo "$FORMAT_DIFF"
+              exit 1
+            fi
+
   build-and-test:
     executor: cpp-executor
     steps:
       - checkout
-
-      # Restore vcpkg cache
       - restore_cache:
           keys:
             - vcpkg-modules-v1-{{ checksum "vcpkg.json" }}
             - vcpkg-modules-v1-
-
       - run:
           name: Install System Dependencies
           command: |
             sudo apt-get update
-            DEBIAN_FRONTEND=noninteractive sudo apt-get install -y cmake clang clang-tidy lcov ninja-build pkg-config llvm
-
+            DEBIAN_FRONTEND=noninteractive sudo apt-get install -y cmake clang clang-tidy clang-format lcov ninja-build pkg-config llvm
       - run:
           name: Setup vcpkg
           command: |
@@ -31,16 +46,12 @@ jobs:
               git submodule add https://github.com/microsoft/vcpkg.git
             fi
             git submodule update --init --recursive
-
       - run:
           name: Bootstrap vcpkg
-          command: |
-            ./vcpkg/bootstrap-vcpkg.sh
-
+          command: ./vcpkg/bootstrap-vcpkg.sh
       - run:
           name: Install vcpkg Dependencies
-          command: |
-            ./vcpkg/vcpkg install --triplet=x64-linux
+          command: ./vcpkg/vcpkg install --triplet=x64-linux
       - run:
           name: Configure Project
           command: |
@@ -57,26 +68,21 @@ jobs:
             mkdir -p build/test_results
             cd build
             ninja
-
       - run:
           name: Run Unit Tests and Store Results
           command: |
             cd build
             ctest --output-on-failure --test-output-size-passed | tee test_results/ctest_output.log
             ctest --test-output-size-passed --gtest_output=xml:test_results/gtest_results.xml || echo "No GTest XML output found."
-
       - run:
           name: Generate Coverage Report
           command: |
             cd build
             llvm-cov gcov $(find . -name "*.gcno")
-      
       - run:
           name: Upload Coverage Report
           command: |
             bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN}
-
-      # Save vcpkg cache
       - save_cache:
           key: vcpkg-modules-v1-{{ checksum "vcpkg.json" }}
           paths:
@@ -87,4 +93,7 @@ workflows:
   version: 2
   build-test-analyze:
     jobs:
-      - build-and-test
+      - clang-format-check
+      - build-and-test:
+          requires:
+            - clang-format-check
