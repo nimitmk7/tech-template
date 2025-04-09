@@ -26,6 +26,32 @@ jobs:
               exit 1
             fi
 
+  clang-tidy-check:
+    executor: cpp-executor
+    steps:
+      - checkout
+      - run:
+          name: Install Clang-Tidy and Tools
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y clang-tidy cmake build-essential ninja-build
+      - run:
+          name: Bootstrap vcpkg
+          command: ./vcpkg/bootstrap-vcpkg.sh
+      - run:
+          name: Install vcpkg Dependencies
+          command: ./vcpkg/vcpkg install
+      - run:
+          name: Create Compilation Database
+          command: |
+            cmake -B build -G Ninja \
+              -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+              -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake
+      - run:
+          name: Run Clang-Tidy
+          command: |
+            find . -not -path "./vcpkg/*" \( -name '*.cpp' -o -name '*.hpp' \) | xargs clang-tidy -p build
+
   build-and-test:
     executor: cpp-executor
     steps:
@@ -94,6 +120,9 @@ workflows:
   build-test-analyze:
     jobs:
       - clang-format-check
-      - build-and-test:
+      - clang-tidy-check:
           requires:
             - clang-format-check
+      - build-and-test:
+          requires:
+            - clang-tidy-check
