@@ -26,7 +26,7 @@ jobs:
               exit 1
             fi
 
-  clang-tidy-check:
+    clang-tidy-check:
     executor: cpp-executor
     steps:
       - checkout
@@ -36,7 +36,13 @@ jobs:
             sudo rm -rf /var/lib/apt/lists/*
             sudo apt-get update
             DEBIAN_FRONTEND=noninteractive sudo apt-get install -y clang-tidy cmake build-essential ninja-build
-
+      - run:
+          name: Setup vcpkg
+          command: |
+            if [ ! -d "vcpkg" ]; then
+              git submodule add https://github.com/microsoft/vcpkg.git
+            fi
+            git submodule update --init --recursive
       - run:
           name: Bootstrap vcpkg
           command: ./vcpkg/bootstrap-vcpkg.sh
@@ -52,7 +58,13 @@ jobs:
       - run:
           name: Run Clang-Tidy
           command: |
-            find . -not -path "./vcpkg/*" \( -name '*.cpp' -o -name '*.hpp' \) | xargs clang-tidy -p build
+            git fetch origin main
+            MODIFIED_FILES=$(git diff --name-only origin/main...HEAD | grep -E '\.(cpp|hpp|cc|cxx|h)$' | grep -v '^vcpkg/')
+            if [ -z "$MODIFIED_FILES" ]; then
+              echo "No modified C++ files to check with clang-tidy."
+            else
+              echo "$MODIFIED_FILES" | xargs -P$(nproc) clang-tidy -p build
+            fi
 
   build-and-test:
     executor: cpp-executor
