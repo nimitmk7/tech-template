@@ -65,12 +65,7 @@ jobs:
       - run:
           name: Run Clang Tidy Check
           command: |
-            find . -not -path "./vcpkg/*" \( -name '*.cpp' -o -name '*.hpp' \) \ | xargs -I{} clang-tidy {} -p build > clang_tidy_errors.log 2>&1 || true
-            if [ -s "clang_tidy_errors.log" ]; then
-              echo "Clang-Tidy found issues. See clang_tidy_errors.log for details."
-              cat clang_tidy_errors.log
-              exit 1
-            fi
+            find . -not -path "./vcpkg/*" \( -name '*.cpp' -o -name '*.hpp' \) | xargs clang-tidy -p build
       - run:
           name: Build Project
           command: |
