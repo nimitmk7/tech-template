@@ -34,7 +34,7 @@ jobs:
           name: Install Clang Tidy
           command: |
             sudo apt-get update
-            sudo apt-get install -y clang-tidy
+            sudo DEBIAN_FRONTEND=noninteractive apt-get install -y clang-tidy
       - run:
           name: Run Clang Tidy Check
           command: |
