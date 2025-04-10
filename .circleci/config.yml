@@ -71,10 +71,20 @@ jobs:
             cd build
             llvm-cov gcov $(find . -name "*.gcno")
       
-      - run:
-          name: Upload Coverage Report
+      # - run:
+      #     name: Upload Coverage Report
+      #     command: |
+      #       bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN}
+        - run:
+          name: Generate Coverage Report
           command: |
-            bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN}
+            cd build
+            mkdir -p coverage
+            llvm-cov gcov $(find . -name "*.gcno") > coverage/summary.txt
+
+        - store_artifacts:
+          path: build/coverage
+          destination: coverage-report
 
       # Save vcpkg cache
       - save_cache:
