@@ -25,25 +25,6 @@ jobs:
               echo "$FORMAT_DIFF"
               exit 1
             fi
-            
-  clang-tidy-check:
-    executor: cpp-executor
-    steps:
-      - checkout
-      - run:
-          name: Install Clang Tidy
-          command: |
-            sudo apt-get update
-            sudo DEBIAN_FRONTEND=noninteractive apt-get install -y clang-tidy
-      - run:
-          name: Run Clang Tidy Check
-          command: |
-            find . -not -path "./vcpkg/*" \( -name '*.cpp' -o -name '*.hpp' \) | xargs clang-tidy -p build
-            if [ -s "clang_tidy_errors.log" ]; then
-              echo "Clang-Tidy found issues. See clang_tidy_errors.log for details."
-              cat clang_tidy_errors.log
-              exit 1
-            fi
 
   build-and-test:
     executor: cpp-executor
@@ -82,6 +63,15 @@ jobs:
               -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
               -G Ninja
       - run:
+          name: Run Clang Tidy Check
+          command: |
+            find . -not -path "./vcpkg/*" \( -name '*.cpp' -o -name '*.hpp' \) \ | xargs -I{} clang-tidy {} -p build > clang_tidy_errors.log 2>&1 || true
+            if [ -s "clang_tidy_errors.log" ]; then
+              echo "Clang-Tidy found issues. See clang_tidy_errors.log for details."
+              cat clang_tidy_errors.log
+              exit 1
+            fi
+      - run:
           name: Build Project
           command: |
             mkdir -p build/test_results
@@ -113,9 +103,6 @@ workflows:
   build-test-analyze:
     jobs:
       - clang-format-check
-      - clang-tidy-check:
-          requires:
-            - clang-format-check
       - build-and-test:
           requires:
-            - clang-tidy-check
+            - clang-format-check
